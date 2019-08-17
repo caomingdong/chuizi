@@ -1,2 +1,17 @@
 // 引入文件
-@import "./common/reset.css"
+@import "./common/reset.css";
+
+
+//logo精灵图
+.iconlogo {
+    background: url("../images/download1.png")
+}
+
+//icon精灵图
+.icon {
+    background: url("../images/download2.png")
+}
+
+.iconmenu {
+    background: url("../images/download.png")
+}

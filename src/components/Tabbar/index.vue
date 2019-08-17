@@ -11,8 +11,6 @@
   </div>
 </template>
 <script>
-//需要引入上部分模块
-
 export default {
   name: "tabbar",
   props: {

@@ -33,6 +33,10 @@ const routes = [
       {
         path: "floor",
         component: () => import("./views/Home/Floor.vue")
+      },
+      {
+        path: "*",
+        component: () => import("./views/Home/Index/index.vue")
       }
     ]
   },
