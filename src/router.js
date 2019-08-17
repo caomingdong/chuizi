@@ -4,9 +4,6 @@ import Vue from "vue";
 import Router from "vue-router";
 import VueRouter from "vue-router";
 
-
-
-
 Vue.use(Router);
 
 const routes = [
@@ -17,6 +14,10 @@ const routes = [
     component: () => import("./views/Home/index.vue"),
     children: [
       //2级
+      {
+        path: "Index",
+        component: () => import("./views/Home/Index/index.vue")
+      },
       {
         path: "category",
         component: () => import("./views/Home/Category.vue")
@@ -55,8 +56,7 @@ const routes = [
     path: "/address/list",
     component: () => import("./views/Aaddress/index.vue")
   }
-]
-
+];
 
 export default new VueRouter({
   routes: routes
