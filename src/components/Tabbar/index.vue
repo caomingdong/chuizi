@@ -40,10 +40,10 @@ export default {
       justify-content: center;
       align-items: center;
       font-size: 14px;
-      color: #8f918f;
+      color: #cccccc;
       -webkit-tap-highlight-color: transparent;
       &.router-link-active {
-        color: #ff5f16;
+        color: #8f918f;
       }
     }
 

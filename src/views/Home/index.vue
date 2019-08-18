@@ -24,25 +24,25 @@ export default {
         {
           id: 1,
           text: "首页",
-          icon: "icon-74",
+          icon: "icon-shouye",
           href: "Index"
         },
         {
           id: 2,
           text: "分类",
-          icon: "icon-yingyuanxinxiimax",
+          icon: "icon-tubiao13",
           href: "category"
         },
         {
           id: 3,
           text: "购物车",
-          icon: "icon-leimupinleifenleileibie2",
+          icon: "icon-shopping",
           href: "cart"
         },
         {
           id: 4,
           text: "个人中心",
-          icon: "icon-wode",
+          icon: "icon-gerenzhongxin",
           href: "user"
         }
       ]
