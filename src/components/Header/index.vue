@@ -5,17 +5,25 @@
         <a href="###" class="iconmenu"></a>
       </li>
       <li class="cz-header-mid">
-        <a href="###" class="iconlogo"></a>
+        <a href="#" class="iconlogo"></a>
       </li>
       <li class="cz-header-right">
         <a href="###"></a>
       </li>
     </ul>
+
+    <div class="cz-header-pullDown">
+      <pullDownHeader></pullDownHeader>
+    </div>
   </div>
 </template>
 <script>
+import pullDownHeader from "./pull-down/index";
 export default {
-  name: "Header"
+  name: "Header",
+  components: {
+    pullDownHeader
+  }
 };
 </script>
 <style lang="scss">
@@ -23,6 +31,7 @@ export default {
   height: 50px;
   width: 100%;
   background-color: #1d1d1d;
+  position: relative;
   ul {
     height: 100%;
     width: 100%;
@@ -67,5 +76,14 @@ export default {
       background-size: cover;
     }
   }
+}
+.cz-header-pullDown {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 684px;
+  top: 50px;
+  left: 0;
+  background-color: #ccc;
 }
 </style>
