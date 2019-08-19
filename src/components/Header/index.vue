@@ -1,7 +1,7 @@
 <template>
   <div class="cz-Header">
     <van-nav-bar title="标题" fixed>
-      <van-icon class="iconmenu icon-left" slot="left" />
+      <van-icon class="iconmenu icon-left" slot="left" @click-left="showPopup" />
       <van-icon class="iconlogo icon-title" slot="title" />
       <van-icon class="iconfont icon-fangdajing" slot="right" />
     </van-nav-bar>
@@ -10,7 +10,12 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  methods: {
+    showPopup() {
+      this.show = true;
+    }
+  }
 };
 </script>
 <style lang="scss">
