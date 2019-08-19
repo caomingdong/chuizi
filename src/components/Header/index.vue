@@ -1,7 +1,16 @@
 <template>
   <div class="cz-Header">
-    <van-nav-bar title="标题" fixed>
-      <van-icon class="iconmenu icon-left" slot="left" @click-left="showPopup" />
+    <!-- <van-button type="primary" @click="showPopup">展示弹出层</van-button> -->
+    <van-popup v-model="show" position="top" :style="{ height: '50%' }">
+      <!-- <ul class="cz-Header-nav">
+        <li v-for="(item) in czHeadernav" :key="item.id">
+          <i class="iconfont" :class="item.icon"></i>
+          <a href="###">{{ item.name }}</a>
+        </li>
+      </ul>-->
+    </van-popup>
+    <van-nav-bar title="标题" fixed @click-left="showPopup">
+      <van-icon class="iconmenu icon-left" slot="left" />
       <van-icon class="iconlogo icon-title" slot="title" />
       <van-icon class="iconfont icon-fangdajing" slot="right" />
     </van-nav-bar>
@@ -11,6 +20,16 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      show: false
+    };
+  },
+
+  props: {
+    czHeadernav: Array
+  },
+
   methods: {
     showPopup() {
       this.show = true;
@@ -31,7 +50,6 @@ export default {
       font-size: 34px;
     }
   }
-
   .van-nav-bar {
     background-color: #1d1d1d;
     color: #eeeeee;
@@ -46,7 +64,6 @@ export default {
       background-size: cover;
     }
   }
-
   .van-nav-bar__title {
     font-size: 18px;
     font-weight: 800;
@@ -62,6 +79,15 @@ export default {
   .van-icon,
   .van-nav-bar__text {
     color: #eeeeee;
+  }
+  // 下拉框
+  .van-popup {
+    background-color: #1d1d1dce;
+    transition: 0.5s ease-out;
+    .cz-Header-nav {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 </style>

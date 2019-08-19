@@ -99,11 +99,8 @@
 </template>
 
 <script>
-import pullDown from "./../../components/Header/pull-down.vue";
 export default {
   name: "Category",
-  components: {
-    pullDown
-  }
+  components: {}
 };
 </script>
