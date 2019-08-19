@@ -1,20 +1,19 @@
 <template>
-  <div class="cz-Header">
+  <div class="pullDown">
     <van-nav-bar title="标题" fixed>
-      <van-icon class="iconmenu icon-left" slot="left" />
-      <van-icon class="iconlogo icon-title" slot="title" />
       <van-icon class="iconfont icon-fangdajing" slot="right" />
+      <van-icon class="iconmenu icon-left" slot="left" />
     </van-nav-bar>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "pullDown"
 };
 </script>
 <style lang="scss">
-.cz-Header {
+.pullDown {
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
   .van-nav-bar__right {
@@ -45,13 +44,6 @@ export default {
   .van-nav-bar__title {
     font-size: 18px;
     font-weight: 800;
-    .icon-title {
-      width: 50px;
-      height: 50px;
-      display: inline-block;
-      background-position: 54px 0px;
-      background-size: cover;
-    }
   }
   .van-nav-bar__title,
   .van-icon,
