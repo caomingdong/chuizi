@@ -3,7 +3,6 @@
     这里是分类页
   -->
   <div class="page-category">
-    <pullDown></pullDown>
     <ul>
       <li>1121312</li>
       <li>1121312</li>
@@ -97,7 +96,6 @@
     </ul>
   </div>
 </template>
-
 <script>
 export default {
   name: "Category",
