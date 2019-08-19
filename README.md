@@ -1,10 +1,18 @@
 # 开始———
 
-### 路由定义
+## 远程仓库: github
+
+    - https://github.com/caomingdong/chuizi.git
+
+#### 使用: git flow init 管理仓库
+
+    - 一种用于管理仓库的思想
 
 #### 页面跳转
 
-1、无
+    - 1、无
+
+## 路由定义
 
 #### 一级路由:
 
