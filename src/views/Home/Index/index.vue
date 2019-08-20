@@ -8,9 +8,8 @@
       <div class="page-index-banner">
         <homebanner :imgs="bannerList"></homebanner>
       </div>
-      <div class="page-index-homefoor">
-        <homefoor></homefoor>
-      </div>
+      <homefoor></homefoor>
+      <homebags></homebags>
     </div>
   </div>
 </template>
@@ -18,6 +17,8 @@
 import Header from "./../../../components/Header/index.vue";
 import homebanner from "./../../../components/Home/banner.vue";
 import homefoor from "./../../../components/Home/foor.vue";
+import homebags from "./../../../components/Home/bags";
+
 import { mapActions, mapState } from "vuex";
 
 export default {
@@ -26,7 +27,8 @@ export default {
   components: {
     Header,
     homebanner,
-    homefoor
+    homefoor,
+    homebags
   },
 
   //计算属性
@@ -44,5 +46,22 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "./../../../assets/styles/home/index.scss";
+.page-index {
+  background-color: #e5e5e5;
+  padding-top: 2.875rem;
+
+  .page-index-content {
+    > div {
+      margin-bottom: 0.5rem;
+      background-color: #fff;
+    }
+  }
+
+  // banner
+  .page-index-banner {
+    height: 12.5rem;
+    padding: 1.25rem 0;
+    box-sizing: border-box;
+  }
+}
 </style>

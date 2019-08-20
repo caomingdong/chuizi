@@ -8,7 +8,10 @@
       <div class="common-box">
         <router-link to="/Login">
           <div class="avatar">
-            <img src="//static.smartisanos.cn/account/asset/img/default-user-avatar.png" alt />
+            <img
+              src="//static.smartisanos.cn/account/asset/img/default-user-avatar.png"
+              alt
+            />
           </div>
           <span>登录/注册</span>
           <span class="iconfont icon-youjian"></span>

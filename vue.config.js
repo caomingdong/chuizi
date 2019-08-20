@@ -7,8 +7,15 @@ module.exports = {
         pathRewrite: {
           "^/cate": ""
         }
+      },
+      "/skus": {
+        target: "https://shopapi.smartisan.com",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/skus": ""
+        }
       }
     }
   }
   // 正向代理配置
-};
+}

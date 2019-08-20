@@ -63,7 +63,6 @@ export default {
   },
 
   // 生命周期函数
-
   updated() {
     this.initSwiper();
   }

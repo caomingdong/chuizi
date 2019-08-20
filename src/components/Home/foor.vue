@@ -6,7 +6,7 @@
     </a>
     <div class="home-foor-commer">
       <ul class="home-foor-commer-list">
-        <li v-for="(item,index) in 9" :key="index">
+        <li v-for="(item, index) in 9" :key="index">
           <span>
             <img src alt />
           </span>
@@ -38,19 +38,7 @@ export default {
   display: flex;
   flex-direction: column;
   .home-foor-header {
-    width: 100%;
-    height: 2.5rem;
-    padding: 0 0.625rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @include border-bottom;
-
-    span {
-      font-size: 18px;
-      font-weight: 800;
-    }
+    @include home--header;
   }
   .home-foor-commer {
     width: 100%;
