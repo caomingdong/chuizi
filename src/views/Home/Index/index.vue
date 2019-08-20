@@ -5,24 +5,36 @@
   <div class="page-index">
     <Header></Header>
     <div class="page-index-content">
-      <div class="page-index-banner"></div>
+      <div class="page-index-banner">
+        <homebanner :imgs="bannerList"></homebanner>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import Header from "./../../../components/Header/index.vue";
+import homebanner from "./../../../components/Home/banner.vue";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "Index",
 
   components: {
-    Header
+    Header,
+    homebanner
   },
-  data() {
-    return {};
+
+  //计算属性
+  computed: {
+    ...mapState("home", ["bannerList"])
+  },
+
+  // 方法
+  methods: {
+    ...mapActions("home", ["getBannerList"])
   }
 };
 </script>
 <style lang="scss">
-@import url("../../../assets/styles/home/home.scss");
+@import "./../../../assets/styles/home/index.scss";
 </style>

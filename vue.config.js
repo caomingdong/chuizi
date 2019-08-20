@@ -5,6 +5,12 @@ module.exports = {
       pathRewrite: {
         "^/cate": ""
       }
+    },
+    "/home": {
+      target: "https://www.smartisan.com",
+      pathRewrite: {
+        "^/home": ""
+      }
     }
   }
 }
