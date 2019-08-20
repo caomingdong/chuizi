@@ -6,12 +6,14 @@ import store from "./store";
 //引入初始化css
 import "./assets/styles/home.scss";
 
-import { Popup, Button, NavBar, icon, Toast } from "vant";
+import { Popup, Button, NavBar, icon, Toast, Swipe, SwipeItem } from "vant";
 
 Vue.use(Popup)
   .use(Button)
   .use(Toast)
   .use(NavBar)
+  .use(Swipe)
+  .use(SwipeItem)
   .use(icon);
 
 Vue.config.productionTip = false;
