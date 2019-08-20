@@ -6,7 +6,9 @@
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
 
-export default {};
+export default {
+  ture
+};
 </script>
 
 
