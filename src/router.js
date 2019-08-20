@@ -13,7 +13,6 @@ const routes = [
     path: "/",
     component: () => import("./views/Home/index.vue"),
     children: [
-      //2级
       {
         path: "Index",
         component: () => import("./views/Home/Index/index.vue")
@@ -33,6 +32,10 @@ const routes = [
       {
         path: "floor",
         component: () => import("./views/Home/Floor.vue")
+      },
+      {
+        path: "",
+        redirect:"/Index"
       }
     ]
   },
@@ -58,7 +61,7 @@ const routes = [
   },
   {
     path: "*",
-    component: () => import("./views/Home/Index/index.vue")
+    redirect:"/Index"
   }
 ];
 
