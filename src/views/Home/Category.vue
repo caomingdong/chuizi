@@ -3,7 +3,10 @@
     这里是分类页
   -->
   <div class="page-category">
-    <categorys :cateCents="categoryList" :cateParticulars="cateParticularsList" />
+    <categorys
+      :cateCents="categoryList"
+      :cateParticulars="cateParticularsList"
+    />
   </div>
 </template>
 

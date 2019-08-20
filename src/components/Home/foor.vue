@@ -1,6 +1,6 @@
 <template>
   <div class="home-foor">
-    <div v-for="(item,index) in floorList" :key="index">
+    <div v-for="(item, index) in floorList" :key="index">
       <div class="home-floors-f">
         <a class="home-foor-header" href="###">
           <span>{{ item.floorName }}</span>
@@ -12,9 +12,19 @@
               <span>
                 <img src alt />
               </span>
-              <p>{{ commodity.find( a => a.id == i) && commodity.find( a => a.id == i).name }}</p>
+              <p>
+                {{
+                commodity.find(a => a.id == i) &&
+                commodity.find(a => a.id == i).name
+                }}
+              </p>
               <p>{{ index }}</p>
-              <p>{{ index }}</p>
+              <p>
+                ￥
+                {{
+                commodity.find(a => a.id == i) &&
+                commodity.find(a => a.id == i).price }}
+              </p>
             </li>
           </ul>
         </div>
@@ -96,6 +106,23 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    p:nth-child(2) {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: rgb(39, 39, 39);
+      font-weight: 800;
+    }
+    p:nth-child(3) {
+      font-size: 12px;
+    }
+    p:nth-child(4) {
+      font-size: 14px;
+      color: rgb(192, 0, 0);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
     img {
       width: 8.75rem;
       height: 8.75rem;

@@ -8,16 +8,20 @@ export default {
     state: {
         bannerList: [],
         floorList: [],
-        floorListtwo: [],
+        floorListtwo: []
     },
 
     getters: {
         id(state) {
+            let result = [];
             state.floorList.forEach(element => {
-                console.log(element);
-            });
+                element.dataList.forEach(item => {
+                    result.push(item)
+                })
+            })
+            console.log(result, "2");
+            return result;
         }
-
     },
     // 变化
     mutations: {
@@ -25,11 +29,10 @@ export default {
         setBannerList(state, payload) {
             state.bannerList = payload.data.banner.dataList;
             state.floorList = payload.data.floors;
-            console.log(state.floorList);
         },
         // 商品
         setfloorList(state, payload) {
-            state.floorListtwo = payload.data.data.list;
+            state.floorListtwo = payload.data.list;
         }
     },
 
@@ -46,18 +49,21 @@ export default {
                 });
         },
         // floors
-        getfloorList(context) {
+        getfloorList({
+            getters,
+            commit
+        }) {
             request
-                .get(
-                    "/skus/product/skus", params: {
-                        ids: ,
-                        'with_stock': true,
-                        'with_spu': true
+                .get("/skus/product/skus", {
+                    params: {
+                        ids: getters.id.join(","),
+                        with_stock: true,
+                        with_spu: true
                     }
-                )
+                })
                 .then(data => {
-                    context.commit("setfloorList", data);
-                    console.log(data);
+                    commit("setfloorList", data.data);
+                    console.log(data.data, "1");
                 });
         }
     }

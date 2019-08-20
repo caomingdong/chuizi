@@ -7,7 +7,6 @@ module.exports = {
         pathRewrite: {
           "^/cate": ""
         }
-<<<<<<< HEAD
       },
       "/skus": {
         target: "https://shopapi.smartisan.com",
@@ -19,10 +18,4 @@ module.exports = {
     }
   }
   // 正向代理配置
-}
-=======
-      }
-    }
-  }
 };
->>>>>>> d246fc35f48e687abbdb124f3b7440d0f7e70e3f
