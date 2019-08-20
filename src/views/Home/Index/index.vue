@@ -8,12 +8,16 @@
       <div class="page-index-banner">
         <homebanner :imgs="bannerList"></homebanner>
       </div>
+      <div class="page-index-homefoor">
+        <homefoor></homefoor>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import Header from "./../../../components/Header/index.vue";
 import homebanner from "./../../../components/Home/banner.vue";
+import homefoor from "./../../../components/Home/foor.vue";
 import { mapActions, mapState } from "vuex";
 
 export default {
@@ -21,7 +25,8 @@ export default {
 
   components: {
     Header,
-    homebanner
+    homebanner,
+    homefoor
   },
 
   //计算属性
@@ -32,6 +37,9 @@ export default {
   // 方法
   methods: {
     ...mapActions("home", ["getBannerList"])
+  },
+  created() {
+    this.getBannerList();
   }
 };
 </script>

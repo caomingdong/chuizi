@@ -1,5 +1,18 @@
-.page-index-banner {
-    height: 200px;
-    padding: 20px 0;
-    box-sizing: border-box;
+.page-index {
+    background-color: #e5e5e5;
+    padding-top: 2.875rem;
+
+    .page-index-content {
+        >div {
+            margin-bottom: .5rem;
+            background-color: #fff;
+        }
+    }
+
+    // banner
+    .page-index-banner {
+        height: 12.5rem;
+        padding: 1.25rem 0;
+        box-sizing: border-box;
+    }
 }

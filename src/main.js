@@ -5,8 +5,17 @@ import store from "./store";
 
 //引入初始化css
 import "./assets/styles/home.scss";
+import "./utils/viewport.js";
 
-import { Popup, Button, NavBar, icon, Toast, Swipe, SwipeItem } from "vant";
+import {
+  Popup,
+  Button,
+  NavBar,
+  icon,
+  Toast,
+  Swipe,
+  SwipeItem
+} from "vant";
 
 Vue.use(Popup)
   .use(Button)

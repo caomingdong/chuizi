@@ -6,24 +6,30 @@ export default {
     namespaced: true,
 
     state: {
-        bannerList: []
+        bannerList: [],
+        floorList: []
     },
 
-    // 变化  =>  更改state的地方
+    // 变化
     mutations: {
+        // banner
         setBannerList(state, payload) {
-            state.bannerList = payload;
-            console.log(payload);
+            state.bannerList = payload.data.banner.dataList;
+            state.floorList = payload.data.floors;
+            console.log(payload.data.floors);
         }
     },
 
     actions: {
-        getBannerList({
-            commit
-        }) {
-            request.get("/marketing/mobile/index_2a19cbb4cf2b6dfdd81dd251912a9903.json")
-                .then((data) => {
-                    commit("setBannerList", data)
+        // banner
+        getBannerList(context) {
+            request
+                .get(
+                    "/cate/marketing/mobile/index_2a19cbb4cf2b6dfdd81dd251912a9903.json"
+                )
+                .then(data => {
+                    context.commit("setBannerList", data);
+                    console.log(data);
                 });
         }
     }

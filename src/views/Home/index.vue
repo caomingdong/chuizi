@@ -59,7 +59,6 @@ export default {
 .page-home > div:nth-child(1) {
   overflow-x: hidden;
   overflow-y: auto;
-  padding-top: 46px;
   flex: 1;
 }
 </style>

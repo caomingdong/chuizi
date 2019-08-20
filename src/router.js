@@ -35,7 +35,7 @@ const routes = [
       },
       {
         path: "",
-        redirect:"/Index"
+        redirect: "/Index"
       }
     ]
   },
@@ -61,7 +61,7 @@ const routes = [
   },
   {
     path: "*",
-    redirect:"/Index"
+    redirect: "/Index"
   }
 ];
 

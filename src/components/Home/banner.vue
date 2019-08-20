@@ -4,8 +4,8 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item, index) in imgs" :key="index">
-          <a>
-            <img :src="item.img" />
+          <a :href="item.linkUrl">
+            <img :src="item.src" />
           </a>
         </div>
       </div>
@@ -26,7 +26,7 @@ import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
 
 export default {
-  name: "banner",
+  name: "home-banner",
 
   // 动态数据传输
   props: {
@@ -45,6 +45,8 @@ export default {
   methods: {
     initSwiper() {
       new Swiper(".swiper-container", {
+        autoplay: 5000,
+        autoplayDisableOnInteraction: false,
         pagination: this.pagination
           ? {
               el: ".swiper-pagination"
@@ -70,10 +72,24 @@ export default {
 
 <style lang="scss">
 .swiper-container {
-  height: 161px;
+  height: 160px;
+  z-index: 0;
+  .swiper-slide:first-child {
+    margin-left: 15px;
+  }
   .swiper-slide {
-    background-color: #ccc;
+    width: 384px;
+    height: 100%;
+    box-sizing: border-box;
+    float: left;
+  }
+  a {
+    width: 384px;
+    img {
+      width: 384px;
+      height: 100%;
+      border-radius: 14px;
+    }
   }
 }
 </style>
-

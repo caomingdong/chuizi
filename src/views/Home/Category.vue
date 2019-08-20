@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import category from "../../components/Category/cent/centent";
+// import category from "../../components/Category/cent/centent";
 import { mapActions } from "vuex";
 export default {
   data() {
