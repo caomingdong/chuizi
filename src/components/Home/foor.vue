@@ -1,21 +1,44 @@
 <template>
   <div class="home-foor">
-    <a class="home-foor-header" href="###">
-      <span>热销商品</span>
-      <i class="iconfont icon-youjian"></i>
-    </a>
-    <div class="home-foor-commer">
-      <ul class="home-foor-commer-list">
-        <li v-for="(item, index) in 9" :key="index">
-          <span>
-            <img src alt />
-          </span>
-          <p>{{ index }}</p>
-          <p>{{ index }}</p>
-          <p>{{ index }}</p>
-        </li>
-      </ul>
+    <div v-for="(item,index) in floorList" :key="index">
+      <div class="home-floors-f">
+        <a class="home-foor-header" href="###">
+          <span>{{ item.floorName }}</span>
+          <i class="iconfont icon-youjian"></i>
+        </a>
+        <div class="home-foor-commer">
+          <ul class="home-foor-commer-list">
+            <li v-for="(i, index) in item.dataList" :key="index">
+              <span>
+                <img src alt />
+              </span>
+              <p>{{ commodity.find( a => a.id == i) && commodity.find( a => a.id == i).name }}</p>
+              <p>{{ index }}</p>
+              <p>{{ index }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+
+    <!-- <div class="home-bags">
+      <a class="home-bags-header" href="###">
+        <span>服饰商品</span>
+        <i class="iconfont icon-youjian"></i>
+      </a>
+      <div class="home-bags-commer">
+        <ul class="home-bags-commer-list">
+          <li v-for="(item, index) in 5" :key="index">
+            <span>
+              <img src alt />
+            </span>
+            <p>{{ index }}</p>
+            <p>{{ index }}</p>
+            <p>{{ index }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>-->
   </div>
 </template>
 
@@ -25,7 +48,8 @@ export default {
 
   // 动态获取数据
   props: {
-    commodity: Array
+    commodity: Array,
+    floorList: Array
   }
 };
 </script>
@@ -33,10 +57,18 @@ export default {
 <style lang="scss">
 @import "./../../assets/styles/common/mixins.scss";
 .home-foor {
+  > div {
+    background-color: #fff;
+  }
+}
+
+.home-floors-f {
   width: 100%;
   height: 18.221875rem;
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5rem;
+
   .home-foor-header {
     @include home--header;
   }
@@ -74,6 +106,15 @@ export default {
   .home-foor-commer-list::-webkit-scrollbar {
     /*隐藏滚动条*/
     display: none;
+  }
+}
+
+.home-bags {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .home-bags-header {
+    @include home--header;
   }
 }
 </style>
