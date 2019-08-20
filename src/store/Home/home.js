@@ -57,7 +57,7 @@ export default {
                 )
                 .then(data => {
                     context.commit("setfloorList", data);
-                    // console.log(data);
+                    console.log(data);
                 });
         }
     }

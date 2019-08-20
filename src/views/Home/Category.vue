@@ -3,23 +3,27 @@
     这里是分类页
   -->
   <div class="page-category">
-    <!-- <category></category> -->
+    <categorys :cateCents="categoryList" :cateParticulars="cateParticularsList" />
   </div>
 </template>
 
 <script>
-// import category from "../../components/Category/cent/centent";
-import { mapActions } from "vuex";
+import categorys from "../../components/Category";
+import { mapActions, mapState, mapGetters } from "vuex";
 export default {
-  data() {
-    return {};
+  name: "caregoy",
+  components: {
+    categorys
   },
   methods: {
     ...mapActions("category", ["getCategoryList"])
   },
+  computed: {
+    ...mapState("category", ["categoryList", "cateParticularsList"])
+    // ...mapGetters("category", ["categoryListCate", "cateParticularsListCate"])
+  },
   created() {
     this.getCategoryList();
-    console.log(this.getCategoryList());
   }
 };
 </script>

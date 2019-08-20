@@ -2,8 +2,8 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import home from "./store/Home/home.js";
-import foor from "./store/Home/foor.js";
 
+import category from "./stores/H-modus/category";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -12,6 +12,7 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     home,
-    foor
+    foor,
+    category
   }
 });
