@@ -1,10 +1,13 @@
 module.exports = {
-  proxy: {
-    "/cate": {
-      target: "https://resource.smartisan.com",
-      pathRewrite: {
-        "^/cate": ""
+  devServer: {
+    proxy: {
+      "/cate": {
+        target: "https://resource.smartisan.com",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/cate": ""
+        }
       }
     }
   }
-}
+};

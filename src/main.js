@@ -6,7 +6,13 @@ import store from "./store";
 //引入初始化css
 import "./assets/styles/home.scss";
 
-import { Popup, Button, NavBar, icon, Toast } from "vant";
+import {
+  Popup,
+  Button,
+  NavBar,
+  icon,
+  Toast
+} from "vant";
 
 Vue.use(Popup)
   .use(Button)

@@ -1,10 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import category from "./stores/H-modus/category";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {},
   mutations: {},
-  actions: {}
+  actions: {},
+  modules: {
+    category
+  }
 });
