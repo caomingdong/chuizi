@@ -3,7 +3,8 @@ export default {
   namespaced: true,
   state: {
     categoryList: [], // 分类数据
-    cateParticularsList: []
+    cateParticularsList: [],
+    ItemList: []
   },
   getters: {
     skus(state) {
@@ -23,6 +24,9 @@ export default {
     },
     setCateParticularsList(state, payload) {
       state.cateParticularsList = payload;
+    },
+    setItemList(state, payload) {
+      state.ItemList = payload;
     }
   },
   actions: {
@@ -49,6 +53,18 @@ export default {
         .then(response => {
           let data = response.data;
           commit("setCateParticularsList", data.data.list);
+        });
+    },
+    getItemList({ commit }, ids) {
+      request
+        .get("https://shopapi.smartisan.com/product/spus", {
+          params: {
+            ids: ids
+          }
+        })
+        .then(response => {
+          let data = response.data;
+          commit("setItemList", data.data.list);
         });
     }
   }

@@ -4,6 +4,28 @@
     /item/:itemId
   -->
   <div class="page-item">
-    <p>这里是详情页</p>
+    <ItemList :itemLists="ItemList[0]"></ItemList>
   </div>
 </template>
+
+<script>
+import ItemList from "../../components/ItemList/index";
+import { mapActions, mapState } from "vuex";
+export default {
+  name: "Item",
+  components: {
+    ItemList
+  },
+  methods: {
+    ...mapActions("category", ["getItemList"])
+  },
+  computed: {
+    ...mapState("category", ["ItemList"])
+  },
+  created() {
+    let ids = this.$route.params.itemId;
+    ids = ids.substring(0, ids.length - 2);
+    this.getItemList(ids);
+  }
+};
+</script>

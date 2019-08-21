@@ -5,7 +5,7 @@
         <h1>{{ item.name }}</h1>
       </div>
       <div class="img-box">
-        <a href="#">
+        <a :href="item.image.linkUrl">
           <img :src="item.image.src" />
         </a>
       </div>

@@ -9,7 +9,7 @@
 
 <script>
 import categorys from "../../components/Category";
-import { mapActions, mapState, mapGetters } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "caregoy",
   components: {
@@ -20,7 +20,6 @@ export default {
   },
   computed: {
     ...mapState("category", ["categoryList", "cateParticularsList"])
-    // ...mapGetters("category", ["categoryListCate", "cateParticularsListCate"])
   },
   created() {
     this.getCategoryList();
