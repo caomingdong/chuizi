@@ -12,7 +12,11 @@
       <div
         :class="item.layout.dataList.length == '2' ? 'box-line' : item.layout.dataList.length == '6' ? 'box-six' : 'box-four'"
       >
-        <a href="#" v-for="hello in item.layout.dataList" :key="hello.sku">
+        <router-link
+          :to="'/item/'+hello.sku"
+          v-for="hello in item.layout.dataList"
+          :key="hello.sku"
+        >
           <div class="img-box">
             <img
               :src="cateParticulars.find(a => a.id == hello.sku) && cateParticulars.find(a => a.id == hello.sku).shop_info.ali_image"
@@ -20,7 +24,7 @@
           </div>
           <span>{{ cateParticulars.find(a => a.id == hello.sku) && cateParticulars.find(a => a.id == hello.sku).shop_info.title }}</span>
           <i class="iconfont icon-youjian"></i>
-        </a>
+        </router-link>
       </div>
     </div>
   </div>
