@@ -2,14 +2,14 @@
   <div class="cz-Header">
     <!-- <van-button type="primary" @click="showPopup">展示弹出层</van-button> -->
     <van-popup v-model="show" position="top" :style="{ height: '50%' }">
-      <!-- <ul class="cz-Header-nav">
-        <li v-for="(item) in czHeadernav" :key="item.id">
+      <ul class="cz-Header-nav">
+        <li v-for="item in czHeadernav" :key="item.id">
           <i class="iconfont" :class="item.icon"></i>
           <a href="###">{{ item.name }}</a>
         </li>
-      </ul>-->
+      </ul>
     </van-popup>
-    <van-nav-bar title="标题" fixed @click-left="showPopup">
+    <van-nav-bar title="标题" fixed @click-left="showPopup" @click-right="showSeach">
       <van-icon class="iconmenu icon-left" slot="left" />
       <van-icon class="iconlogo icon-title" slot="title" />
       <van-icon class="iconfont icon-fangdajing" slot="right" />
@@ -27,12 +27,17 @@ export default {
   },
 
   props: {
-    czHeadernav: Array
+    czHeadernav: Array,
+    headername: String
   },
 
   methods: {
     showPopup() {
       this.show = true;
+    },
+    showSeach() {
+      //跳转搜索页面
+      this.$router.replace("/search");
     }
   }
 };
@@ -42,12 +47,12 @@ export default {
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
   .van-nav-bar__right {
-    width: 50px;
-    height: 50px;
-    right: 8px;
+    width: 3.125rem;
+    height: 3.125rem;
+    right: 0.5rem;
     .iconfont {
-      margin-top: 7px;
-      font-size: 34px;
+      margin-top: 0.4375rem;
+      font-size: 2.125rem;
     }
   }
   .van-nav-bar {
@@ -57,19 +62,19 @@ export default {
   .van-nav-bar__left {
     left: 0;
     .icon-left {
-      width: 50px;
-      height: 50px;
+      width: 3.125rem;
+      height: 3.125rem;
       display: inline-block;
       background-position: -50px 347px;
       background-size: cover;
     }
   }
   .van-nav-bar__title {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 800;
     .icon-title {
-      width: 50px;
-      height: 50px;
+      width: 3.125rem;
+      height: 3.125rem;
       display: inline-block;
       background-position: 54px 0px;
       background-size: cover;

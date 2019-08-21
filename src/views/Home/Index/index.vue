@@ -3,7 +3,7 @@
     这里是首页
   -->
   <div class="page-index">
-    <Header></Header>
+    <Header headername="aaa"></Header>
     <div class="page-index-content">
       <div class="page-index-banner">
         <homebanner :imgs="bannerList"></homebanner>

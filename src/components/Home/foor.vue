@@ -1,54 +1,54 @@
 <template>
   <div class="home-foor">
     <div v-for="(item, index) in floorList" :key="index">
-      <div class="home-floors-f">
-        <a class="home-foor-header" href="###">
+      <div :class="asdsda(item.dataList.length)">
+        <!-- home-floors-f -->
+        <a href="###">
           <span>{{ item.floorName }}</span>
           <i class="iconfont icon-youjian"></i>
         </a>
-        <div class="home-foor-commer">
-          <ul class="home-foor-commer-list">
+        <div>
+          <ul>
             <li v-for="(i, index) in item.dataList" :key="index">
               <span>
-                <img src alt />
+                <img
+                  :src="
+                    commodity.find(a => a.id == i) &&
+                      commodity.find(a => a.id == i).shop_info.ali_image
+                  "
+                  :alt="
+                    commodity.find(a => a.id == i) &&
+                      commodity.find(a => a.id == i).name
+                  "
+                />
               </span>
-              <p>
-                {{
-                commodity.find(a => a.id == i) &&
-                commodity.find(a => a.id == i).name
-                }}
-              </p>
-              <p>{{ index }}</p>
-              <p>
-                ￥
-                {{
-                commodity.find(a => a.id == i) &&
-                commodity.find(a => a.id == i).price }}
-              </p>
+              <div>
+                <p>
+                  {{
+                  commodity.find(a => a.id == i) &&
+                  commodity.find(a => a.id == i).name
+                  }}
+                </p>
+                <p ref="reference">
+                  {{
+                  commodity.find(a => a.id == i) &&
+                  commodity.find(a => a.id == i).spu.shop_info
+                  .spu_mobile_sub_title
+                  }}
+                </p>
+                <p>
+                  ￥
+                  {{
+                  commodity.find(a => a.id == i) &&
+                  commodity.find(a => a.id == i).price
+                  }}
+                </p>
+              </div>
             </li>
           </ul>
         </div>
       </div>
     </div>
-
-    <!-- <div class="home-bags">
-      <a class="home-bags-header" href="###">
-        <span>服饰商品</span>
-        <i class="iconfont icon-youjian"></i>
-      </a>
-      <div class="home-bags-commer">
-        <ul class="home-bags-commer-list">
-          <li v-for="(item, index) in 5" :key="index">
-            <span>
-              <img src alt />
-            </span>
-            <p>{{ index }}</p>
-            <p>{{ index }}</p>
-            <p>{{ index }}</p>
-          </li>
-        </ul>
-      </div>
-    </div>-->
   </div>
 </template>
 
@@ -60,6 +60,31 @@ export default {
   props: {
     commodity: Array,
     floorList: Array
+  },
+
+  methods: {
+    asdsda(num) {
+      console.log(num);
+      switch (num) {
+        case 9:
+          return "home-floors-f";
+          break;
+        case 5:
+          return "home-bags";
+          break;
+        case 8:
+          break;
+        default:
+          //3
+          break;
+      }
+    },
+    bbbb() {
+      const asd = this.$refs.reference;
+      if ((asd.innertext = "")) {
+        console.log("无数据");
+      }
+    }
   }
 };
 </script>
@@ -79,60 +104,80 @@ export default {
   flex-direction: column;
   margin-bottom: 0.5rem;
 
-  .home-foor-header {
+  > a {
     @include home--header;
   }
-  .home-foor-commer {
+  > div {
     width: 100%;
     flex: 1;
     display: flex;
     padding-top: 1.25rem;
-  }
-  .home-foor-commer-list {
-    width: 100%;
-    flex: 1;
-    padding: 0 1.25rem;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    justify-content: space-between;
-  }
-  li {
-    height: 100%;
-    width: 9.375rem;
-    margin-right: 0.625rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    p:nth-child(2) {
+    > ul {
       width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      color: rgb(39, 39, 39);
-      font-weight: 800;
+      flex: 1;
+      padding: 0 1.25rem;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      justify-content: space-between;
     }
-    p:nth-child(3) {
-      font-size: 12px;
+    ul::-webkit-scrollbar {
+      /*隐藏滚动条*/
+      display: none;
     }
-    p:nth-child(4) {
-      font-size: 14px;
-      color: rgb(192, 0, 0);
-      font-weight: 800;
-      margin-bottom: 10px;
+    li {
+      height: 100%;
+      width: 9.375rem;
+      margin-right: 0.625rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        box-sizing: border-box;
+        border: 0.0625rem solid #f1f1f1;
+        img {
+          width: 8.75rem;
+          height: 8.75rem;
+          display: inline-block;
+        }
+      }
+
+      > div {
+        flex: 1;
+        width: 9.375rem;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        > p {
+          padding: 0.125rem 0;
+        }
+        p:nth-child(1) {
+          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: rgb(39, 39, 39);
+          font-weight: 800;
+          font-size: 0.875rem;
+        }
+        p:nth-child(2) {
+          font-size: 0.75rem;
+          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        p:nth-child(3) {
+          font-size: 0.875rem;
+          color: rgb(192, 0, 0);
+          font-weight: 800;
+          margin-bottom: 0.625rem;
+        }
+      }
     }
-    img {
-      width: 8.75rem;
-      height: 8.75rem;
-      display: inline-block;
-      border: 0.0625rem solid #f1f1f1;
-    }
-  }
-  .home-foor-commer-list::-webkit-scrollbar {
-    /*隐藏滚动条*/
-    display: none;
   }
 }
 
@@ -140,8 +185,53 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
-  .home-bags-header {
+
+  > a {
     @include home--header;
+  }
+  ul {
+    width: 100%;
+    li {
+      width: 100%;
+      display: flex;
+      @include border-bottom;
+      > span {
+        overflow: hidden;
+        margin-right: 2.25rem;
+        img {
+          width: 8.75rem;
+          height: 8.75rem;
+        }
+      }
+      > div {
+        width: 15.9375rem;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        > p {
+          padding: 0.125rem 0;
+        }
+
+        > p:nth-child(1) {
+          color: #272727;
+          font-weight: 800;
+          font-size: 0.875rem;
+          width: 80%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        > p:nth-child(2) {
+          font-size: 0.875rem;
+        }
+        > p:nth-child(3) {
+          font-size: 0.875rem;
+          color: rgb(177, 0, 0);
+          font-weight: 800;
+        }
+      }
+    }
   }
 }
 </style>

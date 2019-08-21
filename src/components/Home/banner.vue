@@ -71,23 +71,23 @@ export default {
 
 <style lang="scss">
 .swiper-container {
-  height: 160px;
+  height: 10rem;
   z-index: 0;
   .swiper-slide:first-child {
-    margin-left: 15px;
+    margin-left: 0.9375rem;
   }
   .swiper-slide {
-    width: 384px;
+    width: 24rem;
     height: 100%;
     box-sizing: border-box;
     float: left;
   }
   a {
-    width: 384px;
+    width: 24rem;
     img {
-      width: 384px;
+      width: 24rem;
       height: 100%;
-      border-radius: 14px;
+      border-radius: 0.875rem;
     }
   }
 }

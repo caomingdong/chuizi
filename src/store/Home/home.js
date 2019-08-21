@@ -16,10 +16,10 @@ export default {
             let result = [];
             state.floorList.forEach(element => {
                 element.dataList.forEach(item => {
-                    result.push(item)
-                })
-            })
-            console.log(result, "2");
+                    result.push(item);
+                });
+            });
+            //   console.log(result, "2");
             return result;
         }
     },
@@ -63,7 +63,7 @@ export default {
                 })
                 .then(data => {
                     commit("setfloorList", data.data);
-                    console.log(data.data, "1");
+                    //   console.log(data.data, "1");
                 });
         }
     }
