@@ -5,7 +5,7 @@
         <h1>{{ item.name }}</h1>
       </div>
       <div class="img-box">
-        <a href="#">
+        <a :href="item.image.linkUrl">
           <img :src="item.image.src" />
         </a>
       </div>
@@ -18,7 +18,11 @@
             : 'box-four'
         "
       >
-        <a href="#" v-for="hello in item.layout.dataList" :key="hello.sku">
+        <router-link
+          :to="'/item/'+hello.sku"
+          v-for="hello in item.layout.dataList"
+          :key="hello.sku"
+        >
           <div class="img-box">
             <img
               :src="
@@ -33,7 +37,7 @@
               cateParticulars.find(a => a.id == hello.sku).shop_info.title
           }}</span>
           <i class="iconfont icon-youjian"></i>
-        </a>
+        </router-link>
       </div>
     </div>
   </div>

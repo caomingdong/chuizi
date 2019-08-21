@@ -67,10 +67,10 @@ export default {
       console.log(num);
       switch (num) {
         case 9:
-          return "home-floors-f";
+          "home-floors-f";
           break;
         case 5:
-          return "home-bags";
+          "home-bags";
           break;
         case 8:
           break;
@@ -78,13 +78,13 @@ export default {
           //3
           break;
       }
-    },
-    bbbb() {
-      const asd = this.$refs.reference;
-      if ((asd.innertext = "")) {
-        console.log("无数据");
-      }
     }
+    // bbbb() {
+    //   const asd = this.$refs.reference;
+    //   if ((asd.innertext = "")) {
+    //     console.log("无数据");
+    //   }
+    // }
   }
 };
 </script>
