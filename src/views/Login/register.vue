@@ -24,7 +24,7 @@
       <van-button color="#5178df" size="large"
        :disabled="!username || !password||!autologin"
       @click="handleRegister({username,password})" 
-      >登录</van-button>
+      >注册</van-button>
 
        <div class="phonelogin">
           <router-link to="/register">
