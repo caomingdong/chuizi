@@ -1,5 +1,5 @@
 <template>
-  <div class="page-category">
+  <div class="page-categorys">
     <div v-for="(item, index) in cateCents" :key="index" class="box">
       <div class="title-wrapper">
         <h1>{{ item.name }}</h1>
@@ -47,7 +47,7 @@ export default {
 <style lang="scss">
 @import "../../assets/styles/common/mixin.scss";
 
-.page-category {
+.page-categorys {
   overflow: hidden;
   background: #ccc;
   .box {
@@ -74,6 +74,7 @@ export default {
       width: 100%;
       padding: 0 1.25rem;
       position: relative;
+      left: 4%;
       img {
         width: 21.124rem;
         z-index: 100;

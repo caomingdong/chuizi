@@ -3,7 +3,7 @@
     这里是分类页
   -->
   <div class="page-category">
-    <!-- <div class=""></div> -->
+    <Header></Header>
     <categorys :cateCents="categoryList" :cateParticulars="cateParticularsList" />
   </div>
 </template>
@@ -27,3 +27,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.page-category {
+  margin-top: 46px;
+}
+</style>
