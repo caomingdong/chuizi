@@ -4,7 +4,7 @@
     /item/:itemId
   -->
   <div class="page-item">
-    <ItemList :itemLists="ItemList[0]"></ItemList>
+    <ItemList :itemLists="ItemList[0]" :RecommendList="RecommendList"></ItemList>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     ...mapActions("category", ["getItemList"])
   },
   computed: {
-    ...mapState("category", ["ItemList"])
+    ...mapState("category", ["ItemList", "RecommendList"])
   },
   created() {
     let ids = this.$route.params.itemId;

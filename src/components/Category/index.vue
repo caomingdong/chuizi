@@ -145,7 +145,7 @@ export default {
       text-align: center;
       .img-box {
         width: 6.944375rem;
-        height: 6.944375rem;
+        height: 4.944375rem;
         border: 1px solid #f0f0f0;
         text-align: center;
         line-height: 6.944375rem;
