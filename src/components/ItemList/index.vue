@@ -68,15 +68,18 @@
         </div>
       </div>
     </div>
+    <footerList></footerList>
   </div>
 </template>
 
 <script>
+import footerList from "./footer/index";
 import itemHeader from "./header/index";
 export default {
   name: "itemList",
   components: {
-    itemHeader
+    itemHeader,
+    footerList
   },
   props: {
     itemLists: Object,
