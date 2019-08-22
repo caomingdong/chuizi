@@ -34,8 +34,8 @@
           </div>
           <span>
             {{
-              cateParticulars.find(a => a.id == hello.sku) &&
-                cateParticulars.find(a => a.id == hello.sku).shop_info.title
+            cateParticulars.find(a => a.id == hello.sku) &&
+            cateParticulars.find(a => a.id == hello.sku).shop_info.title
             }}
           </span>
           <i class="iconfont icon-youjian"></i>
@@ -46,13 +46,8 @@
 </template>
 
 <script>
-import Header from './../../components/Header/index'
-
 export default {
   name: 'categorys',
-  components: {
-    Header
-  },
   props: {
     cateCents: {
       type: Array
