@@ -3,6 +3,7 @@
     这里是分类页
   -->
   <div class="page-category">
+    <Header></Header>
     <categorys
       :cateCents="categoryList"
       :cateParticulars="cateParticularsList"
@@ -12,11 +13,14 @@
 
 <script>
 import categorys from '../../components/Category'
+
+import Header from './../../components/Header/index'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'caregoy',
   components: {
-    categorys
+    categorys,
+    Header
   },
   methods: {
     ...mapActions('category', ['getCategoryList'])
