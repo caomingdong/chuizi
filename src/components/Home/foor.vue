@@ -9,35 +9,47 @@
         </a>
         <div>
           <ul>
-            <li v-for="(i, index) in item.dataList" :key="index">
-              <router-link to="item">
+            <li v-for="i in item.dataList" :key="i.id">
+              <router-link
+                :to="{
+                  name: 'item',
+                  params: {
+                    itemId:
+                      commodity.find(a => a.id == i) &&
+                      commodity.find(a => a.id == i).id
+                  }
+                }"
+              >
                 <span>
                   <img
                     :src="
-                    commodity.find(a => a.id == i) &&
-                      commodity.find(a => a.id == i).shop_info.ali_image
-                  "
+                      commodity.find(a => a.id == i) &&
+                        commodity.find(a => a.id == i).shop_info.ali_image
+                    "
                     alt
                   />
                 </span>
                 <div>
                   <p>
                     {{
-                    commodity.find(a => a.id == i) &&
-                    commodity.find(a => a.id == i).product_info.product_name
+                      commodity.find(a => a.id == i) &&
+                        commodity.find(a => a.id == i).product_info.product_name
                     }}
                   </p>
                   <p>
                     {{
-                    commodity.find(a => a.id == i) &&
-                    commodity.find(a => a.id == i).spu.shop_info
-                    .spu_mobile_sub_title
+                      commodity.find(a => a.id == i) &&
+                        commodity.find(a => a.id == i).spu.shop_info
+                          .spu_mobile_sub_title
                     }}
                   </p>
                   <p>
                     <span
-                      v-for="(colorc,index) in commodity.find(a => a.id == i) &&
-                  commodity.find(a => a.id == i).spu.shop_info.spec_v2[0].spec_values"
+                      v-for="(colorc, index) in commodity.find(
+                        a => a.id == i
+                      ) &&
+                        commodity.find(a => a.id == i).spu.shop_info.spec_v2[0]
+                          .spec_values"
                       :key="index"
                     >
                       <img :src="colorc.image" />
@@ -46,8 +58,8 @@
                   <p>
                     ￥
                     {{
-                    (commodity.find(a => a.id == i) &&
-                    commodity.find(a => a.id == i).price) | numFilter
+                      (commodity.find(a => a.id == i) &&
+                        commodity.find(a => a.id == i).price) | numFilter
                     }}
                   </p>
                 </div>

@@ -41,6 +41,7 @@ const routes = [
   },
   {
     path: '/item/:itemId',
+    name: 'item',
     component: () => import('./views/Item/index.vue')
   },
   {
