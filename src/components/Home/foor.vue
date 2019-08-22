@@ -9,6 +9,7 @@
         </a>
         <div>
           <ul>
+            <!-- :to="{name:'item',params:{itemId:commodity.find(a => a.id == i) &&commodity.find(a => a.id == i).id}}" -->
             <li v-for="i in item.dataList" :key="i.id">
               <router-link
                 :to="{
@@ -23,33 +24,31 @@
                 <span>
                   <img
                     :src="
-                      commodity.find(a => a.id == i) &&
-                        commodity.find(a => a.id == i).shop_info.ali_image
-                    "
+                    commodity.find(a => a.id == i) &&
+                      commodity.find(a => a.id == i).shop_info.ali_image
+                  "
                     alt
                   />
                 </span>
                 <div>
                   <p>
                     {{
-                      commodity.find(a => a.id == i) &&
-                        commodity.find(a => a.id == i).product_info.product_name
+                    commodity.find(a => a.id == i) &&
+                    commodity.find(a => a.id == i).product_info.product_name
                     }}
                   </p>
                   <p>
                     {{
-                      commodity.find(a => a.id == i) &&
-                        commodity.find(a => a.id == i).spu.shop_info
-                          .spu_mobile_sub_title
+                    commodity.find(a => a.id == i) &&
+                    commodity.find(a => a.id == i).spu.shop_info
+                    .spu_mobile_sub_title
                     }}
                   </p>
                   <p>
+                    <!-- 使用过滤器，进行判断，当spec_v2的对象中的属性spec_id为1时，则返回该对对象 -->
+                    <!-- <span v-for="(colorc, index) in ((commodity.find(a => a.id == i) &&commodity.find(a => a.id == i).spu.shop_info) | setcolor).spec_values" :key="index"> -->
                     <span
-                      v-for="(colorc, index) in commodity.find(
-                        a => a.id == i
-                      ) &&
-                        commodity.find(a => a.id == i).spu.shop_info.spec_v2[0]
-                          .spec_values"
+                      v-for="(colorc, index) in commodity.find(a => a.id == i) &&commodity.find(a => a.id == i).spu.shop_info.spec_v2[0].spec_values"
                       :key="index"
                     >
                       <img :src="colorc.image" />
@@ -58,8 +57,8 @@
                   <p>
                     ￥
                     {{
-                      (commodity.find(a => a.id == i) &&
-                        commodity.find(a => a.id == i).price) | numFilter
+                    (commodity.find(a => a.id == i) &&
+                    commodity.find(a => a.id == i).price) | numFilter
                     }}
                   </p>
                 </div>
@@ -81,22 +80,23 @@ export default {
     commodity: Array,
     floorList: Array
   },
-  // mounted() {
-  //   setTimeout(() => {
-  //     aa()
-  //   }, 1000)
-  // },
+
   // 过滤器
   filters: {
     numFilter(value) {
       return parseFloat(value).toFixed(2)
+    },
+    setcolor(item) {
+      console.log(item)
+      // if (item.spec_id == 1) {
+      //   return item
+      // }
     }
   },
 
   methods: {
     asdsda(num) {
       let a = String
-      console.log(num)
       switch (num) {
         case 0:
           a = 'home-floors-f'

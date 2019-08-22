@@ -32,6 +32,7 @@ export default {
     },
     // 商品
     setfloorList(state, payload) {
+      state.floorListtwo = [];
       state.floorListtwo = payload.data.list
     }
   },
@@ -49,7 +50,10 @@ export default {
         })
     },
     // floors
-    getfloorList({ getters, commit }) {
+    getfloorList({
+      getters,
+      commit
+    }) {
       request
         .get('/skus/product/skus', {
           params: {

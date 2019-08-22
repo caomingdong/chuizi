@@ -10,8 +10,7 @@
         </li>
       </ul>
     </van-popup>
-    <van-nav-bar title="标题" fixed @click-left="showPopup">
-      <!-- @click-right="showSeach" -->
+    <van-nav-bar title="标题" fixed @click-left="showPopup" @click-right="showSeach">
       <van-icon class="iconmenu icon-left" slot="left" />
       <van-icon class="iconlogo icon-title" slot="title" />
       <van-icon class="iconfont icon-fangdajing" slot="right" />
@@ -25,6 +24,7 @@ export default {
   data() {
     return {
       show: false,
+
       czHeadernav: [
         {
           id: 1,
