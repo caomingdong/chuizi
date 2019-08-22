@@ -9,23 +9,23 @@
 </template>
 
 <script>
-import ItemList from '../../components/ItemList/index'
-import { mapActions, mapState } from 'vuex'
+import ItemList from "../../components/ItemList/index";
+import { mapActions, mapState } from "vuex";
 export default {
-  name: 'Item',
+  name: "Item",
   components: {
     ItemList
   },
   methods: {
-    ...mapActions('category', ['getItemList'])
+    ...mapActions("category", ["getItemList"])
   },
   computed: {
-    ...mapState('category', ['ItemList'])
+    ...mapState("category", ["ItemList"])
   },
   created() {
-    let ids = this.$route.params.itemId
-    ids = ids.substring(0, ids.length - 2)
-    this.getItemList(ids)
+    let ids = this.$route.params.itemId;
+    ids = ids.substring(0, ids.length - 2);
+    this.getItemList(ids);
   }
-}
+};
 </script>

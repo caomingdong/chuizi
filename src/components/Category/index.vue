@@ -10,34 +10,19 @@
         </a>
       </div>
       <div
-        :class="
-          item.layout.dataList.length == '2'
-            ? 'box-line'
-            : item.layout.dataList.length == '6'
-            ? 'box-six'
-            : 'box-four'
-        "
+        :class="item.layout.dataList.length == '2' ? 'box-line' : item.layout.dataList.length == '6' ? 'box-six' : 'box-four'"
       >
         <router-link
-          :to="'/item/' + hello.sku"
+          :to="'/item/'+hello.sku"
           v-for="hello in item.layout.dataList"
           :key="hello.sku"
         >
           <div class="img-box">
             <img
-              :src="
-                cateParticulars.find(a => a.id == hello.sku) &&
-                  cateParticulars.find(a => a.id == hello.sku).shop_info
-                    .ali_image
-              "
+              :src="cateParticulars.find(a => a.id == hello.sku) && cateParticulars.find(a => a.id == hello.sku).shop_info.ali_image"
             />
           </div>
-          <span>
-            {{
-            cateParticulars.find(a => a.id == hello.sku) &&
-            cateParticulars.find(a => a.id == hello.sku).shop_info.title
-            }}
-          </span>
+          <span>{{ cateParticulars.find(a => a.id == hello.sku) && cateParticulars.find(a => a.id == hello.sku).shop_info.title }}</span>
           <i class="iconfont icon-youjian"></i>
         </router-link>
       </div>
@@ -47,7 +32,7 @@
 
 <script>
 export default {
-  name: 'categorys',
+  name: "categorys",
   props: {
     cateCents: {
       type: Array
@@ -56,11 +41,11 @@ export default {
       type: Array
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import '../../assets/styles/common/mixin.scss';
+@import "../../assets/styles/common/mixin.scss";
 
 .page-category {
   overflow: hidden;

@@ -1,7 +1,9 @@
 <template>
   <div class="page-item-list-header">
     <div @click="back()">
-      <span> <i class="iconfont icon-ico_leftarrow"></i>返回 </span>
+      <span>
+        <i class="iconfont icon-ico_leftarrow"></i>返回
+      </span>
     </div>
     <h1>{{ itemHeaderLists }}</h1>
   </div>
@@ -9,10 +11,10 @@
 
 <script>
 export default {
-  name: 'itemHeader',
+  name: "itemHeader",
   methods: {
     back() {
-      this.$router.back()
+      this.$router.back();
     }
   },
   props: {
@@ -20,7 +22,7 @@ export default {
       type: String
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -52,7 +54,7 @@ export default {
         box-shadow: inset 0 1px 1px hsla(0, 0%, 100%, 0.1),
           inset 0 0 1px rgba(0, 0, 0, 0.5);
         border-radius: 3px;
-        content: ' ';
+        content: " ";
         position: absolute;
         top: 1px;
         bottom: 1px;
