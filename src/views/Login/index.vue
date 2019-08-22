@@ -1,6 +1,7 @@
 <template>
   <div class="page-login">
      <div class="header">
+<<<<<<< HEAD
        <div class="title">登录官网</div>
      </div>
      <div class="page-for-center">
@@ -62,6 +63,16 @@ import {mapActions} from "vuex"
 
 </script>
 
+=======
+     <div class="title">登录官网</div>
+    </div>
+    <div class="page-for-center">
+    </div>
+
+  </div>
+</template>
+
+>>>>>>> b6f4407d35acf068c195a0fff121670b6532021c
 <style lang="scss" scoped>
 .page-login .header {
     background: #1d1d1d;
@@ -86,6 +97,7 @@ import {mapActions} from "vuex"
   height: 100%;
 }
 .page-for-center {
+<<<<<<< HEAD
    padding:10px 8px;
    background-color: #e5e5e5;
    flex: 1;
@@ -142,4 +154,11 @@ import {mapActions} from "vuex"
 }
  
 
+=======
+   padding:7px 6px;
+   background-color: #e5e5e5;
+   flex: 1;
+   overflow-y:auto;
+}
+>>>>>>> b6f4407d35acf068c195a0fff121670b6532021c
 </style>
