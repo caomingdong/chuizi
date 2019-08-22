@@ -13,6 +13,13 @@ import ItemList from '../../components/ItemList/index'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'Item',
+  watch: {
+    $route(newVal, oldVal) {
+      let ids = this.$route.params.itemId
+      ids = ids.substring(0, ids.length - 2)
+      this.getItemList(ids)
+    }
+  },
   components: {
     ItemList
   },
