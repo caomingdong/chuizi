@@ -13,14 +13,14 @@
   </div>
 </template>
 <script>
-import Header from "./../../../components/Header/index.vue";
-import homebanner from "./../../../components/Home/banner.vue";
-import homefoor from "./../../../components/Home/foor.vue";
+import Header from './../../../components/Header/index.vue'
+import homebanner from './../../../components/Home/banner.vue'
+import homefoor from './../../../components/Home/foor.vue'
 
-import { mapActions, mapState, mapGetters } from "vuex";
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
-  name: "Index",
+  name: 'Index',
 
   components: {
     Header,
@@ -30,18 +30,18 @@ export default {
 
   //计算属性
   computed: {
-    ...mapState("home", ["bannerList", "floorListtwo", "floorList"])
+    ...mapState('home', ['bannerList', 'floorListtwo', 'floorList'])
     // ...mapGetters("home", ["floorListdata"])
   },
 
   // 方法
   methods: {
-    ...mapActions("home", ["getBannerList"])
+    ...mapActions('home', ['getBannerList'])
   },
   created() {
-    this.getBannerList();
+    this.getBannerList()
   }
-};
+}
 </script>
 <style lang="scss">
 .page-index {

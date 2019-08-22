@@ -1,10 +1,10 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-import home from "./store/Home/home.js";
+import home from './store/Home/home.js'
 
-import category from "./stores/H-modus/category";
-Vue.use(Vuex);
+import category from './stores/H-modus/category'
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {},
@@ -14,4 +14,4 @@ export default new Vuex.Store({
     home,
     category
   }
-});
+})

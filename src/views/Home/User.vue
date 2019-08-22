@@ -59,32 +59,32 @@ export default {
   data() {
     return {
       tabs: [
-        { name: "全部订单", icon: "icon-order", to: "/" },
-        { name: "待付款", icon: "icon-daifukuan", to: "/" },
-        { name: "待收费", icon: "icon-quhuo", to: "/" },
-        { name: "售后", icon: "icon-shouhou", to: "/" }
+        { name: '全部订单', icon: 'icon-order', to: '/' },
+        { name: '待付款', icon: 'icon-daifukuan', to: '/' },
+        { name: '待收费', icon: 'icon-quhuo', to: '/' },
+        { name: '售后', icon: 'icon-shouhou', to: '/' }
       ],
       addlists: [
-        { name: "地址管理", to: "/" },
-        { name: "我的优惠券", to: "/" },
-        { name: "优先购买码", to: "/" },
-        { name: "提货兑换卡", to: "/" }
+        { name: '地址管理', to: '/' },
+        { name: '我的优惠券', to: '/' },
+        { name: '优先购买码', to: '/' },
+        { name: '提货兑换卡', to: '/' }
       ],
       problemlists: [
-        { name: "常见问题", to: "/" },
-        { name: "服务支持", to: "/" }
+        { name: '常见问题', to: '/' },
+        { name: '服务支持', to: '/' }
       ],
       promiselists: [
-        { name: "意外碎屏保修服务", to: "/" },
-        { name: "延长保修服务", to: "/" }
+        { name: '意外碎屏保修服务', to: '/' },
+        { name: '延长保修服务', to: '/' }
       ]
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
-@import "../../assets/styles/common/mixins.scss";
+@import '../../assets/styles/common/mixins.scss';
 .page-user {
   display: flex;
   flex-direction: column;

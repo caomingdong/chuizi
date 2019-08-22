@@ -19,7 +19,7 @@
         "
       >
         <router-link
-          :to="'/item/'+hello.sku"
+          :to="'/item/' + hello.sku"
           v-for="hello in item.layout.dataList"
           :key="hello.sku"
         >
@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  name: "categorys",
+  name: 'categorys',
   props: {
     cateCents: {
       type: Array
@@ -54,11 +54,11 @@ export default {
       type: Array
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "../../assets/styles/common/mixin.scss";
+@import '../../assets/styles/common/mixin.scss';
 
 .page-category {
   overflow: hidden;

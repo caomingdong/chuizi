@@ -20,16 +20,16 @@
 </template>
 <script>
 export default {
-  name: "home-bags",
+  name: 'home-bags',
 
   props: {
     bagsList: Array
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "./../../assets/styles/common/mixins.scss";
+@import './../../assets/styles/common/mixins.scss';
 
 .home-bags {
   width: 100%;

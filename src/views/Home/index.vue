@@ -10,10 +10,10 @@
 
 <script>
 //模块引入
-import Tabbar from "../../components/Tabbar/index";
+import Tabbar from '../../components/Tabbar/index'
 
 export default {
-  name: "Home",
+  name: 'Home',
 
   components: {
     Tabbar
@@ -23,32 +23,32 @@ export default {
       tabdata: [
         {
           id: 1,
-          text: "首页",
-          icon: "icon-shouye",
-          href: "Index"
+          text: '首页',
+          icon: 'icon-shouye',
+          href: 'Index'
         },
         {
           id: 2,
-          text: "分类",
-          icon: "icon-tubiao13",
-          href: "category"
+          text: '分类',
+          icon: 'icon-tubiao13',
+          href: 'category'
         },
         {
           id: 3,
-          text: "购物车",
-          icon: "icon-shopping",
-          href: "cart"
+          text: '购物车',
+          icon: 'icon-shopping',
+          href: 'cart'
         },
         {
           id: 4,
-          text: "个人中心",
-          icon: "icon-gerenzhongxin",
-          href: "user"
+          text: '个人中心',
+          icon: 'icon-gerenzhongxin',
+          href: 'user'
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
 <style lang="scss">
 .page-home {

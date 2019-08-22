@@ -1,7 +1,7 @@
 <template>
   <div class="home-foor">
     <div v-for="(item, index) in floorList" :key="index">
-      <div :class="asdsda(item.dataList.length)">
+      <div :class="asdsda(index)">
         <!-- home-floors-f -->
         <a href="###">
           <span>{{ item.floorName }}</span>
@@ -10,40 +10,48 @@
         <div>
           <ul>
             <li v-for="(i, index) in item.dataList" :key="index">
-              <span>
-                <img
-                  :src="
+              <router-link to="item">
+                <span>
+                  <img
+                    :src="
                     commodity.find(a => a.id == i) &&
                       commodity.find(a => a.id == i).shop_info.ali_image
                   "
-                  :alt="
+                    alt
+                  />
+                </span>
+                <div>
+                  <p>
+                    {{
                     commodity.find(a => a.id == i) &&
-                      commodity.find(a => a.id == i).name
-                  "
-                />
-              </span>
-              <div>
-                <p>
-                  {{
-                  commodity.find(a => a.id == i) &&
-                  commodity.find(a => a.id == i).name
-                  }}
-                </p>
-                <p ref="reference">
-                  {{
-                  commodity.find(a => a.id == i) &&
-                  commodity.find(a => a.id == i).spu.shop_info
-                  .spu_mobile_sub_title
-                  }}
-                </p>
-                <p>
-                  ￥
-                  {{
-                  commodity.find(a => a.id == i) &&
-                  commodity.find(a => a.id == i).price
-                  }}
-                </p>
-              </div>
+                    commodity.find(a => a.id == i).product_info.product_name
+                    }}
+                  </p>
+                  <p>
+                    {{
+                    commodity.find(a => a.id == i) &&
+                    commodity.find(a => a.id == i).spu.shop_info
+                    .spu_mobile_sub_title
+                    }}
+                  </p>
+                  <p>
+                    <span
+                      v-for="(colorc,index) in commodity.find(a => a.id == i) &&
+                  commodity.find(a => a.id == i).spu.shop_info.spec_v2[0].spec_values"
+                      :key="index"
+                    >
+                      <img :src="colorc.image" />
+                    </span>
+                  </p>
+                  <p>
+                    ￥
+                    {{
+                    (commodity.find(a => a.id == i) &&
+                    commodity.find(a => a.id == i).price) | numFilter
+                    }}
+                  </p>
+                </div>
+              </router-link>
             </li>
           </ul>
         </div>
@@ -54,46 +62,73 @@
 
 <script>
 export default {
-  name: "fome-foor",
+  name: 'fome-foor',
 
   // 动态获取数据
   props: {
     commodity: Array,
     floorList: Array
   },
+  // mounted() {
+  //   setTimeout(() => {
+  //     aa()
+  //   }, 1000)
+  // },
+  // 过滤器
+  filters: {
+    numFilter(value) {
+      return parseFloat(value).toFixed(2)
+    }
+  },
 
   methods: {
     asdsda(num) {
-      console.log(num);
+      let a = String
+      console.log(num)
       switch (num) {
-        case 9:
-          "home-floors-f";
-          break;
-        case 5:
-          "home-bags";
-          break;
-        case 8:
-          break;
+        case 0:
+          a = 'home-floors-f'
+          break
+        case 1:
+          a = 'home-bags'
+          break
+        case 2:
+          a = 'home-parets'
+          break
         default:
           //3
-          break;
+          a = 'home-mobler'
+          break
       }
+      return a
     }
-    // bbbb() {
-    //   const asd = this.$refs.reference;
-    //   if ((asd.innertext = "")) {
-    //     console.log("无数据");
-    //   }
+    // aa() {
+    //   let aee = []
+    //   console.log(floorList)
+    //   floorList.forEach(element => {
+    //     aee = element.spu.shop_info.spec_v2.map(function(item) {
+    //       if (item.spec_id == 1) {
+    //         return item
+    //       }
+    //     }).spec_values
+    //   })
     // }
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "./../../assets/styles/common/mixins.scss";
+@import './../../assets/styles/common/mixins.scss';
 .home-foor {
   > div {
     background-color: #fff;
+  }
+  ul::-webkit-scrollbar {
+    /*隐藏滚动条*/
+    display: none;
+  }
+  .color-switch {
+    display: flex;
   }
 }
 
@@ -103,7 +138,6 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5rem;
-
   > a {
     @include home--header;
   }
@@ -134,47 +168,52 @@ export default {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      span {
-        box-sizing: border-box;
-        border: 0.0625rem solid #f1f1f1;
-        img {
-          width: 8.75rem;
-          height: 8.75rem;
-          display: inline-block;
+      > a {
+        span {
+          box-sizing: border-box;
+          img {
+            width: 8.75rem;
+            height: 8.75rem;
+            display: inline-block;
+            border: 0.0625rem solid #f1f1f1;
+          }
         }
-      }
-
-      > div {
-        flex: 1;
-        width: 9.375rem;
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        > p {
-          padding: 0.125rem 0;
-        }
-        p:nth-child(1) {
-          width: 100%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          color: rgb(39, 39, 39);
-          font-weight: 800;
-          font-size: 0.875rem;
-        }
-        p:nth-child(2) {
-          font-size: 0.75rem;
-          width: 100%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-        p:nth-child(3) {
-          font-size: 0.875rem;
-          color: rgb(192, 0, 0);
-          font-weight: 800;
-          margin-bottom: 0.625rem;
+        > div {
+          flex: 1;
+          width: 9.375rem;
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          > p {
+            padding: 0.125rem 0;
+            height: 0.9375rem;
+          }
+          p:nth-child(1) {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: rgb(39, 39, 39);
+            font-weight: 800;
+            font-size: 0.875rem;
+          }
+          p:nth-child(2) {
+            font-size: 0.75rem;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          p:nth-child(3) {
+            display: none;
+          }
+          p:nth-child(4) {
+            font-size: 0.875rem;
+            color: rgb(192, 0, 0);
+            font-weight: 800;
+            margin-bottom: 0.625rem;
+          }
         }
       }
     }
@@ -185,6 +224,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5rem;
 
   > a {
     @include home--header;
@@ -192,43 +232,252 @@ export default {
   ul {
     width: 100%;
     li {
-      width: 100%;
-      display: flex;
-      @include border-bottom;
-      > span {
-        overflow: hidden;
-        margin-right: 2.25rem;
-        img {
-          width: 8.75rem;
-          height: 8.75rem;
+      > a {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        @include border-bottom;
+        > span {
+          overflow: hidden;
+          margin-right: 2.25rem;
+          img {
+            width: 8.75rem;
+            height: 8.75rem;
+          }
+        }
+        > div {
+          width: 15.9375rem;
+          height: 100%;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          > p {
+            display: inline-block;
+            padding: 0.125rem 0;
+            height: 1rem;
+          }
+
+          > p:nth-child(1) {
+            color: #272727;
+            font-weight: 800;
+            font-size: 0.875rem;
+            width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          > p:nth-child(2) {
+            font-size: 0.875rem;
+          }
+          > p:nth-child(3) {
+            font-size: 0.875rem;
+            display: flex;
+            padding-right: 11rem;
+            justify-content: flex-start;
+            align-items: center;
+            > span {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 0 0.375rem;
+              height: 0.625rem;
+              width: 0.625rem;
+              border-radius: 50%;
+              border: #979797 0.0625rem solid;
+              > img {
+                display: inline-block;
+                height: 0.5rem;
+                width: 0.5rem;
+                border-radius: 50%;
+              }
+            }
+          }
+          > p:nth-child(4) {
+            font-size: 0.875rem;
+            color: rgb(177, 0, 0);
+            font-weight: 800;
+          }
         }
       }
-      > div {
-        width: 15.9375rem;
+    }
+  }
+}
+
+.home-parets {
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  display: flex;
+  > a {
+    @include home--header;
+  }
+  > div {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    padding-top: 1.25rem;
+    > ul {
+      width: 100%;
+      flex: 1;
+      margin: 0 1.0625rem;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      justify-content: space-between;
+    }
+    ul::-webkit-scrollbar {
+      /*隐藏滚动条*/
+      display: none;
+    }
+    li {
+      > a {
+        height: 17.5rem;
+        width: 11.875rem;
         display: flex;
         flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        > p {
-          padding: 0.125rem 0;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          box-sizing: border-box;
+          border: 0.0625rem solid #f1f1f1;
+          img {
+            width: 11rem;
+            height: 11rem;
+            display: inline-block;
+          }
         }
 
-        > p:nth-child(1) {
-          color: #272727;
-          font-weight: 800;
-          font-size: 0.875rem;
-          width: 80%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+        > div {
+          flex: 1;
+          width: 100%;
+          margin: 0.6rem 0;
+          padding: 0 0.625rem;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          > p {
+            padding: 0.125rem 0;
+          }
+          p:nth-child(1) {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: rgb(39, 39, 39);
+            font-weight: 800;
+            font-size: 0.875rem;
+          }
+          p:nth-child(2) {
+            font-size: 0.5rem;
+            // transform: scale(0.8);
+            width: 100%;
+            left: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          p:nth-child(3) {
+            display: none;
+          }
+          p:nth-child(4) {
+            font-size: 0.875rem;
+            color: rgb(192, 0, 0);
+            font-weight: 800;
+            margin-bottom: 0.625rem;
+          }
         }
-        > p:nth-child(2) {
-          font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.home-mobler {
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  display: flex;
+  > a {
+    @include home--header;
+  }
+  > div {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    padding-top: 1.25rem;
+    > ul {
+      width: 100%;
+      flex: 1;
+      margin: 0 1.0625rem;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      justify-content: space-between;
+    }
+    ul::-webkit-scrollbar {
+      /*隐藏滚动条*/
+      display: none;
+    }
+    li {
+      > a {
+        height: 17.5rem;
+        width: 11.875rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          box-sizing: border-box;
+          border: 0.0625rem solid #f1f1f1;
+          img {
+            width: 11rem;
+            height: 11rem;
+            display: inline-block;
+          }
         }
-        > p:nth-child(3) {
-          font-size: 0.875rem;
-          color: rgb(177, 0, 0);
-          font-weight: 800;
+
+        > div {
+          flex: 1;
+          width: 100%;
+          margin: 0.6rem 0;
+          padding: 0 0.625rem;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          > p {
+            padding: 0.125rem 0;
+          }
+          p:nth-child(1) {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: rgb(39, 39, 39);
+            font-weight: 800;
+            font-size: 0.875rem;
+          }
+          p:nth-child(2) {
+            font-size: 0.5rem;
+            // transform: scale(0.8);
+            width: 100%;
+            left: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          p:nth-child(3) {
+            display: none;
+          }
+          p:nth-child(4) {
+            font-size: 0.875rem;
+            color: rgb(192, 0, 0);
+            font-weight: 800;
+            margin-bottom: 0.625rem;
+          }
         }
       }
     }

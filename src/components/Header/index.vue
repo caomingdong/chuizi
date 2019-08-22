@@ -2,12 +2,19 @@
   <div class="cz-Header">
     <!-- <van-button type="primary" @click="showPopup">展示弹出层</van-button> -->
     <van-popup v-model="show" position="top" :style="{ height: '50%' }">
-      <ul class="cz-Header-nav">
+      <ul>
+        <li>123213</li>
+        <li>123213</li>
+        <li>123213</li>
+        <li>123213</li>
+      </ul>
+
+      <!-- <ul class="cz-Header-nav">
         <li v-for="item in czHeadernav" :key="item.id">
           <i class="iconfont" :class="item.icon"></i>
           <a href="###">{{ item.name }}</a>
         </li>
-      </ul>
+      </ul>-->
     </van-popup>
     <van-nav-bar title="标题" fixed @click-left="showPopup" @click-right="showSeach">
       <van-icon class="iconmenu icon-left" slot="left" />
@@ -19,11 +26,11 @@
 
 <script>
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
       show: false
-    };
+    }
   },
 
   props: {
@@ -33,14 +40,14 @@ export default {
 
   methods: {
     showPopup() {
-      this.show = true;
+      this.show = true
     },
     showSeach() {
       //跳转搜索页面
-      this.$router.replace("/search");
+      this.$router.replace('/search')
     }
   }
-};
+}
 </script>
 <style lang="scss">
 .cz-Header {

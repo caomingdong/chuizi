@@ -1,21 +1,21 @@
 module.exports = {
   devServer: {
     proxy: {
-      "/cate": {
-        target: "https://resource.smartisan.com",
+      '/cate': {
+        target: 'https://resource.smartisan.com',
         changeOrigin: true,
         pathRewrite: {
-          "^/cate": ""
+          '^/cate': ''
         }
       },
-      "/skus": {
-        target: "https://shopapi.smartisan.com",
+      '/skus': {
+        target: 'https://shopapi.smartisan.com',
         changeOrigin: true,
         pathRewrite: {
-          "^/skus": ""
+          '^/skus': ''
         }
       }
     }
   }
   // 正向代理配置
-};
+}

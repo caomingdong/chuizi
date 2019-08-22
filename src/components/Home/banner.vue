@@ -22,11 +22,11 @@
 </template>
 
 <script>
-import Swiper from "swiper";
-import "swiper/dist/css/swiper.min.css";
+import Swiper from 'swiper'
+import 'swiper/dist/css/swiper.min.css'
 
 export default {
-  name: "home-banner",
+  name: 'home-banner',
 
   // 动态数据传输
   props: {
@@ -44,29 +44,29 @@ export default {
   // 方法
   methods: {
     initSwiper() {
-      new Swiper(".swiper-container", {
+      new Swiper('.swiper-container', {
         autoplay: 5000,
         autoplayDisableOnInteraction: false,
         pagination: this.pagination
           ? {
-              el: ".swiper-pagination"
+              el: '.swiper-pagination'
             }
           : {},
         navigation: this.navigation
           ? {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev"
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev'
             }
           : {}
-      });
+      })
     }
   },
 
   // 生命周期函数
   updated() {
-    this.initSwiper();
+    this.initSwiper()
   }
-};
+}
 </script>
 
 <style lang="scss">

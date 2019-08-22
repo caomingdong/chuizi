@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import itemHeader from "./header/index";
+import itemHeader from './header/index'
 export default {
-  name: "itemList",
+  name: 'itemList',
   components: {
     itemHeader
   },
   props: {
     itemLists: Object
   }
-};
+}
 </script>
 
 <style lang="scss">
