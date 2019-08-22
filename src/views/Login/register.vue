@@ -1,7 +1,7 @@
 <template>
   <div class="page-login">
      <div class="header">
-       <div class="title">登录官网</div>
+       <div class="title">注册 Smartisan ID</div>
      </div>
      <div class="page-for-center">
       <van-cell-group class="styleforcell">
@@ -18,17 +18,12 @@
              <i class="iconfont icon-gou1" v-else></i>
              </span>
          </label>
-         <span class="auto-login">自动登录</span>
-         <span class="login">
-         <router-link to="/register">注册</router-link>
-         </span>
-         <span class="forgetpassword">
-         <router-link to="/register">忘记密码</router-link>
-         </span>
+         <span class="auto-login">我已阅读并同意遵守法律声明和隐私条款</span>
+
       </div>
       <van-button color="#5178df" size="large"
-       :disabled="!username || !password"
-     @click="handleLogin({username, password})"
+       :disabled="!username || !password||!autologin"
+      @click="handleRegister({username,password})" 
       >登录</van-button>
 
        <div class="phonelogin">
@@ -41,8 +36,6 @@
     <!--中间部分-->
   </div>
 </template>
-
-
 <script>
 import {mapActions} from "vuex"
    export default{
@@ -54,8 +47,8 @@ import {mapActions} from "vuex"
             autologin:1
          }
       },
-      methods: {
-       ...mapActions("user", ["handleLogin"])
+      methods:{
+         ...mapActions("user",["handleRegister"])
       }
    }
 
@@ -102,14 +95,6 @@ import {mapActions} from "vuex"
       }
       .auto-login{
          margin-left:1rem;   
-      }
-      .login{
-         
-         margin-left:8rem;
-      }
-      .forgetpassword{
-        
-         margin-left:1rem;
       }
    }
    .phonelogin {
