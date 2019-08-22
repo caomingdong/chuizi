@@ -32,10 +32,12 @@
               "
             />
           </div>
-          <span>{{
+          <span>
+            {{
             cateParticulars.find(a => a.id == hello.sku) &&
-              cateParticulars.find(a => a.id == hello.sku).shop_info.title
-          }}</span>
+            cateParticulars.find(a => a.id == hello.sku).shop_info.title
+            }}
+          </span>
           <i class="iconfont icon-youjian"></i>
         </router-link>
       </div>
@@ -75,7 +77,7 @@ export default {
         line-height: 2.5rem;
         color: #666;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 1.2rem;
         padding: 0 0.6rem;
       }
     }

@@ -184,7 +184,7 @@ export default {
     }
   }
   .scroll-content {
-    height: 33.375rem;
+    height: 547px;
     flex: 1;
     width: 100%;
     overflow-y: auto;
