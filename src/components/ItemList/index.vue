@@ -76,7 +76,7 @@
 import footerList from './footer/index'
 import itemHeader from './header/index'
 export default {
-  name: 'itemList',
+  name: "itemList",
   components: {
     itemHeader,
     footerList
@@ -149,7 +149,7 @@ export default {
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

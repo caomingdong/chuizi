@@ -9,26 +9,23 @@
 </template>
 
 <script>
-import categorys from '../../components/Category'
-
-import Header from './../../components/Header/index'
-import { mapActions, mapState } from 'vuex'
+import categorys from "../../components/Category";
+import { mapActions, mapState } from "vuex";
 export default {
-  name: 'caregoy',
+  name: "caregoy",
   components: {
-    categorys,
-    Header
+    categorys
   },
   methods: {
-    ...mapActions('category', ['getCategoryList'])
+    ...mapActions("category", ["getCategoryList"])
   },
   computed: {
-    ...mapState('category', ['categoryList', 'cateParticularsList'])
+    ...mapState("category", ["categoryList", "cateParticularsList"])
   },
   created() {
-    this.getCategoryList()
+    this.getCategoryList();
   }
-}
+};
 </script>
 
 <style lang="scss">

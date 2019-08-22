@@ -7,14 +7,20 @@
     <div class="page-for-center">
       <div class="common-box">
         <router-link to="/Login">
-          <div class="avatar">
-            <img
-              src="//static.smartisanos.cn/account/asset/img/default-user-avatar.png"
-              alt
-            />
+        <div v-if="userInfo">
+            <div class="avatar">
+              <img :src="userInfo.avatar" alt />
+            </div>
+            <span>{{userInfo.username}}</span>
+            <span class="iconfont icon-youjian"></span>
           </div>
-          <span>登录/注册</span>
-          <span class="iconfont icon-youjian"></span>
+          <div v-else>
+            <div class="avatar">
+              <img src="../../assets/images/default-user-avatar.png" alt />
+            </div>
+            <span>登录/注册</span>
+            <span class="iconfont icon-youjian"></span>
+          </div>
         </router-link>
       </div>
       <ul class="list-box-ul">
@@ -26,25 +32,25 @@
         </li>
       </ul>
       <ul class="box-radius">
-        <li v-for="(list, index) in addlists" :key="index">
+        <li v-for="(list,index) in addlists" :key="index">
           <router-link to="list.to">
-            <span>{{ list.name }}</span>
+            <span>{{list.name}}</span>
             <span class="iconfont icon-youjian"></span>
           </router-link>
         </li>
       </ul>
       <ul class="box-radius">
-        <li v-for="(list, index) in problemlists" :key="index">
+        <li v-for="(list,index) in problemlists" :key="index">
           <router-link to="list.to">
-            <span>{{ list.name }}</span>
+            <span>{{list.name}}</span>
             <span class="iconfont icon-youjian"></span>
           </router-link>
         </li>
       </ul>
       <ul class="box-radius">
-        <li v-for="(list, index) in promiselists" :key="index">
+        <li v-for="(list,index) in promiselists" :key="index">
           <router-link to="list.to">
-            <span>{{ list.name }}</span>
+            <span>{{list.name}}</span>
             <span class="iconfont icon-youjian"></span>
           </router-link>
         </li>
@@ -55,36 +61,44 @@
 </template>
 
 <script>
+
+import {mapState} from "vuex";
 export default {
+  computed:{
+    ...mapState("user", ["userInfo"])
+  },
+  methods:{
+
+  },
   data() {
     return {
       tabs: [
-        { name: '全部订单', icon: 'icon-order', to: '/' },
-        { name: '待付款', icon: 'icon-daifukuan', to: '/' },
-        { name: '待收费', icon: 'icon-quhuo', to: '/' },
-        { name: '售后', icon: 'icon-shouhou', to: '/' }
+        { name: "全部订单", icon: "icon-order", to: "/money" },
+        { name: "待付款", icon: "icon-daifukuan", to: "/money" },
+        { name: "待收费", icon: "icon-quhuo", to: "/money" },
+        { name: "售后", icon: "icon-shouhou", to: "/money" }
       ],
       addlists: [
-        { name: '地址管理', to: '/' },
-        { name: '我的优惠券', to: '/' },
-        { name: '优先购买码', to: '/' },
-        { name: '提货兑换卡', to: '/' }
+        { name: "地址管理", to: "/money" },
+        { name: "我的优惠券", to: "/money" },
+        { name: "优先购买码", to: "/money" },
+        { name: "提货兑换卡", to: "/money" }
       ],
       problemlists: [
-        { name: '常见问题', to: '/' },
-        { name: '服务支持', to: '/' }
+        { name: "常见问题", to: "/" },
+        { name: "服务支持", to: "/" }
       ],
       promiselists: [
-        { name: '意外碎屏保修服务', to: '/' },
-        { name: '延长保修服务', to: '/' }
+        { name: "意外碎屏保修服务", to: "/" },
+        { name: "延长保修服务", to: "/" }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
-<style scoped lang="scss">
-@import '../../assets/styles/common/mixins.scss';
+<style lang="scss">
+@import "../../assets/styles/common/mixins.scss";
 .page-user {
   display: flex;
   flex-direction: column;
@@ -187,5 +201,8 @@ export default {
       }
     }
   }
+
+  //
 }
 </style>
+
