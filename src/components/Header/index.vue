@@ -1,15 +1,16 @@
 <template>
   <div class="cz-Header">
-    <!-- <van-button type="primary" @click="showPopup">展示弹出层</van-button> -->
     <van-popup v-model="show" position="top" :style="{ height: '50%' }">
-      <!-- <ul class="cz-Header-nav">
-        <li v-for="(item) in czHeadernav" :key="item.id">
-          <i class="iconfont" :class="item.icon"></i>
-          <a href="###">{{ item.name }}</a>
+      <ul class="cz-Header-nav">
+        <li v-for="item in czHeadernav" :key="item.id">
+          <a>
+            <i class="iconfont" :class="item.icon"></i>
+            <span>{{ item.name }}</span>
+          </a>
         </li>
-      </ul>-->
+      </ul>
     </van-popup>
-    <van-nav-bar title="标题" fixed @click-left="showPopup">
+    <van-nav-bar title="标题" fixed @click-left="showPopup" @click-right="showSeach">
       <van-icon class="iconmenu icon-left" slot="left" />
       <van-icon class="iconlogo icon-title" slot="title" />
       <van-icon class="iconfont icon-fangdajing" slot="right" />
@@ -19,37 +20,94 @@
 
 <script>
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
-      show: false
-    };
+      show: false,
+
+      czHeadernav: [
+        {
+          id: 1,
+          name: '锤子商城',
+          icon: 'icon-shangcheng'
+        },
+        {
+          id: 2,
+          name: '坚果 Pro 2S',
+          icon: 'icon-shoujicellphone57'
+        },
+        {
+          id: 3,
+          name: '坚果 R1',
+          icon: 'icon-phone'
+        },
+        {
+          id: 4,
+          name: '坚果 TNT 工作站',
+          icon: 'icon-pc'
+        },
+        {
+          id: 5,
+          name: '坚果 3',
+          icon: 'icon-shouji'
+        },
+        {
+          id: 6,
+          name: '坚果 Pro 2S',
+          icon: 'icon-shoujicellphone57'
+        },
+        {
+          id: 7,
+          name: '应用',
+          icon: 'icon-chuizi'
+        },
+        {
+          id: 8,
+          name: '论坛',
+          icon: 'icon-shoujicellphone57'
+        },
+        {
+          id: 9,
+          name: '服务支持',
+          icon: 'icon-fuwu2'
+        }
+      ]
+    }
   },
 
   props: {
-    czHeadernav: Array
+    // czHeadernav: Array,
+    headername: String
   },
 
   methods: {
     showPopup() {
-      this.show = true;
+      this.show = true
+    },
+    showSeach() {
+      //跳转搜索页面
+      this.$router.replace('/search')
     }
   }
-};
+}
 </script>
 <style lang="scss">
 .cz-Header {
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
+  .van-overlay {
+    background-color: rgba(228, 228, 228, 0.575);
+  }
   .van-nav-bar__right {
-    width: 50px;
-    height: 50px;
-    right: 8px;
+    width: 3.125rem;
+    height: 3.125rem;
+    right: 0.5rem;
     .iconfont {
-      margin-top: 7px;
-      font-size: 34px;
+      margin-top: 0.4375rem;
+      font-size: 2.125rem;
     }
   }
+
   .van-nav-bar {
     background-color: #1d1d1d;
     color: #eeeeee;
@@ -57,19 +115,19 @@ export default {
   .van-nav-bar__left {
     left: 0;
     .icon-left {
-      width: 50px;
-      height: 50px;
+      width: 3.125rem;
+      height: 3.125rem;
       display: inline-block;
       background-position: -50px 347px;
       background-size: cover;
     }
   }
   .van-nav-bar__title {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 800;
     .icon-title {
-      width: 50px;
-      height: 50px;
+      width: 3.125rem;
+      height: 3.125rem;
       display: inline-block;
       background-position: 54px 0px;
       background-size: cover;
@@ -82,11 +140,35 @@ export default {
   }
   // 下拉框
   .van-popup {
-    background-color: #1d1d1dce;
+    background-color: #252525ee;
     transition: 0.5s ease-out;
+    margin-top: 45px;
     .cz-Header-nav {
       width: 100%;
       height: 100%;
+      > li {
+        > a {
+          width: 25%;
+          height: 83px;
+          float: left;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          border: 0.03125rem solid #868585;
+          color: #eeeeee;
+          i {
+            font-size: 1.875rem;
+          }
+          span {
+            padding-top: 0.6rem;
+            font-size: 0.75rem;
+            color: #cccccc;
+            transform: scale(0.8);
+          }
+        }
+      }
     }
   }
 }

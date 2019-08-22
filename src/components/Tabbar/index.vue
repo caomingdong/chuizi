@@ -12,11 +12,11 @@
 </template>
 <script>
 export default {
-  name: "tabbar",
+  name: 'tabbar',
   props: {
     tabdata: Array
   }
-};
+}
 </script>
 <style lang="scss">
 .cz-tabbar {

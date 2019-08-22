@@ -73,10 +73,10 @@
 </template>
 
 <script>
-import footerList from "./footer/index";
-import itemHeader from "./header/index";
+import footerList from './footer/index'
+import itemHeader from './header/index'
 export default {
-  name: "itemList",
+  name: 'itemList',
   components: {
     itemHeader,
     footerList
@@ -88,72 +88,72 @@ export default {
   data() {
     return {
       activeStep: 0
-    };
+    }
   },
   methods: {
     // 滚动触发按钮高亮
     onScroll(e) {
-      let scrollItems = document.querySelectorAll(".scroll-item");
+      let scrollItems = document.querySelectorAll('.scroll-item')
       for (let i = scrollItems.length - 1; i >= 0; i--) {
         // 判断滚动条滚动距离是否大于当前滚动项可滚动距离
         let judge =
           e.target.scrollTop >=
-          scrollItems[i].offsetTop - scrollItems[0].offsetTop;
+          scrollItems[i].offsetTop - scrollItems[0].offsetTop
         if (judge) {
-          this.activeStep = i;
-          break;
+          this.activeStep = i
+          break
         }
       }
     },
     // 点击切换锚点
     jump(index) {
-      let target = document.querySelector(".scroll-content");
-      let scrollItems = document.querySelectorAll(".scroll-item");
+      let target = document.querySelector('.scroll-content')
+      let scrollItems = document.querySelectorAll('.scroll-item')
       // 判断滚动条是否滚动到底部
       if (target.scrollHeight <= target.scrollTop + target.clientHeight) {
-        this.activeStep = index;
+        this.activeStep = index
       }
-      let total = scrollItems[index].offsetTop - scrollItems[0].offsetTop; // 锚点元素距离其offsetParent(这里是body)顶部的距离(待滚动的距离)
-      let distance = document.querySelector(".scroll-content").scrollTop; // 滚动条距离滚动区域顶部的距离
+      let total = scrollItems[index].offsetTop - scrollItems[0].offsetTop // 锚点元素距离其offsetParent(这里是body)顶部的距离(待滚动的距离)
+      let distance = document.querySelector('.scroll-content').scrollTop // 滚动条距离滚动区域顶部的距离
       // let distance = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset // 滚动条距离滚动区域顶部的距离(滚动区域为窗口)
       // 滚动动画实现, 使用setTimeout的递归实现平滑滚动，将距离细分为50小段，10ms滚动一次
       // 计算每一小段的距离
-      let step = total / 50;
+      let step = total / 50
       if (total > distance) {
-        smoothDown(document.querySelector(".scroll-content"));
+        smoothDown(document.querySelector('.scroll-content'))
       } else {
-        let newTotal = distance - total;
-        step = newTotal / 50;
-        smoothUp(document.querySelector(".scroll-content"));
+        let newTotal = distance - total
+        step = newTotal / 50
+        smoothUp(document.querySelector('.scroll-content'))
       }
 
       // 参数element为滚动区域
       function smoothDown(element) {
         if (distance < total) {
-          distance += step;
-          element.scrollTop = distance;
-          setTimeout(smoothDown.bind(this, element), 10);
+          distance += step
+          element.scrollTop = distance
+          setTimeout(smoothDown.bind(this, element), 10)
         } else {
-          element.scrollTop = total;
+          element.scrollTop = total
         }
       }
 
       function smoothUp(element) {
         if (distance > total) {
-          distance -= step;
-          element.scrollTop = distance;
-          setTimeout(smoothUp.bind(this, element), 10);
+          distance -= step
+          element.scrollTop = distance
+          setTimeout(smoothUp.bind(this, element), 10)
         } else {
-          element.scrollTop = total;
+          element.scrollTop = total
         }
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "../../assets/styles/common/mixin.scss";
+@import '../../assets/styles/common/mixin.scss';
 .page-item-list {
   padding-top: 6.125rem;
   padding-bottom: 2.75rem - 0.5625rem;
