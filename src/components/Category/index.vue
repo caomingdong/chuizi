@@ -62,7 +62,7 @@ export default {
         line-height: 2.5rem;
         color: #666;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 1.2rem;
         padding: 0 0.6rem;
       }
     }
@@ -145,7 +145,7 @@ export default {
       text-align: center;
       .img-box {
         width: 6.944375rem;
-        height: 6.944375rem;
+        height: 4.944375rem;
         border: 1px solid #f0f0f0;
         text-align: center;
         line-height: 6.944375rem;

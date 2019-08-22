@@ -4,7 +4,8 @@ export default {
   state: {
     categoryList: [], // 分类数据
     cateParticularsList: [],
-    ItemList: []
+    ItemList: [],
+    RecommendList: []
   },
   getters: {
     skus(state) {
@@ -14,7 +15,6 @@ export default {
           result.push(i.sku)
         })
       })
-
       return result
     }
   },
@@ -27,6 +27,9 @@ export default {
     },
     setItemList(state, payload) {
       state.ItemList = payload
+    },
+    setRecommend(state, payload) {
+      state.RecommendList = payload
     }
   },
   actions: {
@@ -35,8 +38,7 @@ export default {
         .get(
           '/cate/marketing/mobile/category_a1071de81525177a67d87e350524a987.json'
         )
-        .then(response => {
-          let data = response.data
+        .then(data => {
           context.commit('setCategoryList', data)
           context.dispatch('getCateParticularsList')
         })
@@ -50,21 +52,33 @@ export default {
             with_spu: true
           }
         })
-        .then(response => {
-          let data = response.data
+        .then(data => {
           commit('setCateParticularsList', data.data.list)
         })
     },
-    getItemList({ commit }, ids) {
+    getItemList({ commit, dispatch }, ids) {
       request
         .get('https://shopapi.smartisan.com/product/spus', {
           params: {
             ids: ids
           }
         })
-        .then(response => {
-          let data = response.data
+        .then(data => {
           commit('setItemList', data.data.list)
+          dispatch('getRecommend')
+        })
+    },
+    getRecommend({ commit }) {
+      request
+        .get('https://shopapi.smartisan.com/product/skus', {
+          params: {
+            ids: '100047001,100047101,100055301,100042801,100052801',
+            with_stock: true,
+            with_spu: true
+          }
+        })
+        .then(data => {
+          commit('setRecommend', data.data.list)
         })
     }
   }
