@@ -11,13 +11,12 @@
       </ul>
     </van-popup>
     <van-nav-bar
-      title="标题"
+      title="分类"
       fixed
       @click-left="showPopup"
       @click-right="showSeach"
     >
       <van-icon class="iconmenu icon-left" slot="left" />
-      <van-icon class="iconlogo icon-title" slot="title" />
       <van-icon class="iconfont icon-fangdajing" slot="right" />
     </van-nav-bar>
   </div>
@@ -128,15 +127,8 @@ export default {
     }
   }
   .van-nav-bar__title {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 800;
-    .icon-title {
-      width: 3.125rem;
-      height: 3.125rem;
-      display: inline-block;
-      background-position: 54px 0px;
-      background-size: cover;
-    }
   }
   .van-nav-bar__title,
   .van-icon,

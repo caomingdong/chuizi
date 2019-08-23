@@ -7,6 +7,13 @@ module.exports = {
         pathRewrite: {
           "^/cate": ""
         }
+      },
+      '^/sku': {
+        target: 'https://shopapi.smartisan.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/sku': ""
+        }
       }
     }
   }

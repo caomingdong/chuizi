@@ -5,6 +5,7 @@ import store from "./store";
 
 //引入初始化css
 import "./assets/styles/home.scss";
+import './utils/viewport.js'
 
 import {
   Popup,
@@ -14,13 +15,17 @@ import {
   Cell,
   CellGroup,
   Field,
-  Toast
+  Toast,
+  Swipe,
+  SwipeItem
 
 } from "vant";
 
 Vue.use(Popup)
   .use(NavBar)
   .use(icon)
+  .use(Swipe)
+  .use(SwipeItem)
   .use(Cell)
   .use(CellGroup)
   .use(Field)

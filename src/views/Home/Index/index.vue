@@ -3,68 +3,56 @@
     这里是首页
   -->
   <div class="page-index">
-    <Header></Header>
+    <Header headername="aaa"></Header>
+    <div class="page-index-content">
+      <div class="page-index-banner">
+        <homebanner :imgs="bannerList"></homebanner>
+      </div>
+      <homefoor :commodity="floorListtwo" :floorList="floorList"></homefoor>
+    </div>
   </div>
 </template>
 <script>
-import Header from "./../../../components/Header/index.vue";
+import Header from "./.../../../../../components/Header/index";
+import homebanner from "./../../../components/Home/banner";
+import homefoor from "./../../../components//Home/foor";
+
+import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
   name: "Index",
 
   components: {
-    Header
+    Header,
+    homebanner,
+    homefoor
   },
-  data() {
-    return {
-      czHeadernav: [
-        {
-          id: 1,
-          name: "锤子商城",
-          icon: "icon-shangcheng"
-        },
-        {
-          id: 2,
-          name: "坚果 Pro 2S",
-          icon: "icon-shoujicellphone57"
-        },
-        {
-          id: 3,
-          name: "坚果 R1",
-          icon: "icon-phone"
-        },
-        {
-          id: 4,
-          name: "坚果 TNT 工作站",
-          icon: "icon-pc"
-        },
-        {
-          id: 5,
-          name: "坚果 3",
-          icon: "icon-shouji"
-        },
-        {
-          id: 6,
-          name: "坚果 Pro 2S",
-          icon: "icon-shoujicellphone57"
-        },
-        {
-          id: 7,
-          name: "应用",
-          icon: "icon-chuizi"
-        },
-        {
-          id: 8,
-          name: "论坛",
-          icon: "icon-shoujicellphone57"
-        },
-        {
-          id: 9,
-          name: "服务支持",
-          icon: "icon-fuwu2"
-        }
-      ]
-    };
+
+  //计算属性
+  computed: {
+    ...mapState("home", ["bannerList", "floorListtwo", "floorList"])
+    // ...mapGetters("home", ["floorListdata"])
+  },
+
+  // 方法
+  methods: {
+    ...mapActions("home", ["getBannerList"])
+  },
+  created() {
+    this.getBannerList();
   }
 };
 </script>
+<style lang="scss">
+.page-index {
+  background-color: #e5e5e5;
+  padding-top: 2.875rem;
+
+  // banner
+  .page-index-banner {
+    height: 12.5rem;
+    padding: 1.25rem 0;
+    box-sizing: border-box;
+  }
+}
+</style>
