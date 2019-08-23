@@ -22,7 +22,10 @@ const routes = [
       },
       {
         path: "cart",
-        component: () => import("./views/Home/Cart.vue")
+        component: () => import("./views/Home/Cart.vue"),
+        meta: {
+          needLogin: true
+        }
       },
       {
         path: "user",
