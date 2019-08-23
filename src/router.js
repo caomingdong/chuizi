@@ -1,5 +1,5 @@
 import Vue from "vue";
-import store from './store'
+import store from "./store";
 //路由
 import VueRouter from "vue-router";
 
@@ -34,7 +34,7 @@ const routes = [
       },
       {
         path: "",
-        redirect:"/Index"
+        redirect: "/Index"
       }
     ]
   },
@@ -49,7 +49,7 @@ const routes = [
   {
     path: "/register",
     component: () => import("./views/Login/register.vue")
-  }, 
+  },
   {
     path: "/login",
     component: () => import("./views/Login/index.vue")
@@ -63,7 +63,10 @@ const routes = [
   },
   {
     path: "/order/list",
-    component: () => import("./views/Order/index.vue")
+    component: () => import("./views/Order/index.vue"),
+    meta: {
+      needLogin: true
+    }
   },
   {
     path: "/address/list",
@@ -71,7 +74,7 @@ const routes = [
   },
   {
     path: "*",
-    redirect:"/Index"
+    redirect: "/Index"
   }
 ];
 
@@ -85,19 +88,19 @@ router.beforeEach((to, from, next) => {
     // 登录状态的校验
     if (store.state.user.userInfo) {
       // 放行
-      next()
+      next();
     } else {
       // 不存在，去登录
       next({
-        path: '/Login',
+        path: "/Login",
         query: {
           redirect: to.fullPath
         }
-      })
+      });
     }
   } else {
-    next()
+    next();
   }
-})
+});
 
-export default router
+export default router;

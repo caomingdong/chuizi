@@ -2,9 +2,9 @@
   <div class="page-item-footer">
     <div class="footer-box">
       <router-link to="/cart" class="iconfont icon-shopping"></router-link>
-      <a href="#" class="aYan">
+      <router-link to="/order/list" class="aYan">
         <span>现在购买</span>
-      </a>
+      </router-link>
       <a href="#" class="aYan">
         <span>加入购物车</span>
       </a>
