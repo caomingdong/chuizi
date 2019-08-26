@@ -18,6 +18,7 @@ export default {
       let ids = this.$route.params.itemId;
       ids = ids.substring(0, ids.length - 2);
       this.getItemList(ids);
+      document.querySelector(".scroll-content").scrollTop = 0;
     }
   },
   components: {
